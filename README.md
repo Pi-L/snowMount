@@ -1,1 +1,1 @@
-CEFIM's SnowMount Exercise
+[CEFIM](https://www.cefim.eu/)'s SnowMount Exercise

@@ -1,0 +1,21 @@
+/* Dependencies */
+
+// todo : change Dependencies imports to each files that needs them
+
+@import 'dependencies/sm-variables';
+@import 'dependencies/sm-colors';
+@import 'dependencies/sm-vclasses';
+@import 'dependencies/sm-mixins';
+@import 'dependencies/sm-mediaQueries';
+
+// Core Modules
+@import 'modules-core/sm-normalize';
+@import 'modules-core/sm-fonts';
+@import 'modules-core/sm-media';
+@import 'modules-core/sm-layoutBase';
+@import 'modules-core/sm-general';
+@import 'modules-core/sm-navigation';
+
+// Accessibility Modules
+
+@import 'modules-a11y/sm-a11y';

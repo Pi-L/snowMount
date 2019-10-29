@@ -1,0 +1,60 @@
+$sm-color--white: #fff;
+$sm-color--blue: #3693d6;
+$sm-color--blue-light: #9bc0ff;
+$sm-color--grey: #e2e2e2;
+$sm-color--grey-light: rgba(0, 0, 0, 0.3);
+
+// logo
+
+$sm-logo__leftSide-font-color: $sm-color--white;
+$sm-logo__rightSide-font-color: $sm-color--blue-light;
+
+// header
+
+$sm-header-font-color: $sm-color--white;
+
+$sm-header__title--shadow-color: $sm-color--grey-light;
+
+$sm-header__logo__leftSide-font-color: $sm-logo__leftSide-font-color;
+$sm-header__logo__rightSide-font-color: $sm-logo__rightSide-font-color;
+
+$sm-header__link--portfolio-bg-color: $sm-color--blue;
+$sm-header__link--portfolio-font-color: $sm-color--white;
+
+// navigation
+
+$sm-nav__link--hello-bg-color: $sm-color--white;
+$sm-nav__link--Hello-font-color: $sm-color--blue;
+
+$sm-nav__link-font-color: $sm-color--white;
+$sm-nav__link-bg-color: transparent;
+$sm-nav__link--active__marker-bg-color: $sm-color--white;
+
+// section "about"
+
+$sm-about-font-color: $sm-color--white;
+$sm-about-bg-color: $sm-color--blue;
+
+// section "portfolio"
+
+$sm-portfolio-font-color: $sm-color--blue;
+$sm-portfolio-bg-color: $sm-color--white;
+
+$sm-portfolio__container__figure__card-font-color: $sm-color--white;
+$sm-portfolio__container__figure__card-bg-color: rgba($sm-color--blue, 0.65);
+
+// aside "testimonial"
+
+$sm-testimonial-font-color: $sm-color--blue;
+$sm-testimonial-bg-color: $sm-color--white;
+// ! A CHANGER !!
+$sm-testimonial__link--active-bg-color: $sm-color--blue-light;
+$sm-testimonial__link-bg-color: $sm-color--grey;
+
+// footer
+
+$sm-footer-bg-color: $sm-color--blue;
+$sm-footer-font-color: $sm-color--white;
+
+$sm-footer__logo__leftSide-font-color: $sm-logo__leftSide-font-color;
+$sm-footer__logo__rightSide-font-color: $sm-logo__rightSide-font-color;

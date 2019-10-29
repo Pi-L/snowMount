@@ -1,0 +1,193 @@
+body {
+  background-color: $sm-color--white;
+}
+
+// --------------------------------------------------------------------
+// NAVIGATION
+
+// --------------------------------------------------------------------
+// HEADER
+
+.sm-c-header {
+  &__titleH1 {
+    background-color: transparent;
+    > span {
+      background-color: inherit;
+    }
+  }
+
+  &__link--ourWork {
+    display: inline-block;
+    @extend %sm-u-linkButton;
+    background-color: $sm-header__link--portfolio-bg-color;
+    padding: 10px 39px 10px 22px;
+    &::after {
+      content: '';
+      position: absolute;
+      background: transparent url('../svg/Iconefleche.svg') no-repeat 50% 50%;
+      background-size: contain;
+      display: inline-block;
+      width: 17px;
+      height: 16px;
+      top: 50%;
+      right: 17px;
+      transform: translate(0, -50%);
+      transition: transform 0.6s;
+    }
+    &:hover,
+    &:focus {
+      &::after {
+        transform: scale(1.2) translate(4px, -40%);
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------
+// ASIDE "ABOUT"
+
+.sm-c-about {
+  background-color: $sm-about-bg-color;
+}
+
+// --------------------------------------------------------------------
+// SECTION "PORTFOLIO"
+
+.sm-c-portfolio {
+  background-color: $sm-portfolio-bg-color;
+  &__container {
+    &__figure {
+      &__card {
+        background-color: $sm-portfolio__container__figure__card-bg-color;
+        transition: opacity 0.3s;
+
+        &__link--more {
+          display: block;
+
+          @extend %sm-u-linkButton;
+          border: 2px solid $sm-portfolio__container__figure__card-font-color;
+          width: nth($sm-portfolio__container__figure__card__link--more-width, 1);
+          height: nth($sm-portfolio__container__figure__card__link--more-height, 1);
+          padding: nth($sm-portfolio__container__figure__card__link--more-padding, 1);
+
+          @include tabletSmall-sz3() {
+            width: nth($sm-portfolio__container__figure__card__link--more-width, 3);
+
+            padding: nth($sm-portfolio__container__figure__card__link--more-padding, 3);
+          }
+          @include tabletBig-sz4() {
+            width: nth($sm-portfolio__container__figure__card__link--more-width, 4);
+            height: nth($sm-portfolio__container__figure__card__link--more-height, 4);
+            padding: nth($sm-portfolio__container__figure__card__link--more-padding, 4);
+          }
+          @include laptop-sz5() {
+            width: nth($sm-portfolio__container__figure__card__link--more-width, 5);
+            height: nth($sm-portfolio__container__figure__card__link--more-height, 5);
+            padding: nth($sm-portfolio__container__figure__card__link--more-padding, 5);
+          }
+          @include desktop-sz6() {
+            width: nth($sm-portfolio__container__figure__card__link--more-width, 6);
+            height: nth($sm-portfolio__container__figure__card__link--more-height, 6);
+            padding: nth($sm-portfolio__container__figure__card__link--more-padding, 6);
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 2px;
+            width: 70%;
+            background-color: transparent;
+            transition: width 0.3s;
+          }
+          &:hover,
+          &:focus,
+          &:active {
+            &::after {
+              width: 40%;
+              background-color: $sm-portfolio__container__figure__card-font-color;
+            }
+          }
+        }
+      }
+      // todo focusability
+      // ? js (toggle class on link--more focus maybe)
+      &:hover &__card,
+      &:focus &__card {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------
+// SECTION "TESTIMONIAL"
+
+.sm-c-testimonial {
+  background-color: $sm-testimonial-bg-color;
+
+  &__radio {
+    opacity: 0;
+    &--label {
+      background-color: $sm-testimonial__link-bg-color;
+      border-radius: 50%;
+      outline: none;
+      transition: background-color 0.3s;
+      &:hover,
+      &:active {
+        background-color: $sm-testimonial__link--active-bg-color;
+        cursor: pointer;
+      }
+    }
+    &:checked + &--label,
+    &:focus + &--label {
+      background-color: $sm-testimonial__link--active-bg-color;
+    }
+    &:focus + &--label {
+      border: 1px solid darkblue;
+    }
+  }
+
+  &__slider {
+    &__card {
+      background-color: $sm-testimonial-bg-color;
+      > * {
+        text-align: center;
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------
+// FOOTER
+
+.sm-c-footer {
+  &::before {
+    content: '';
+    background-color: $sm-footer-bg-color;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200vw;
+    transform: translateX(-25%);
+    z-index: -1;
+  }
+
+  &__infos {
+    &__contact {
+      a {
+        outline: none;
+        color: $sm-footer-font-color;
+        @include hover-underline-animation($sm-footer-font-color);
+      }
+    }
+  }
+
+  &__social {
+    a {
+      outline: none;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+%sm-u-linkButton {
+  border-radius: 34px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  outline: none;
+
+  &[disabled] {
+    border: none;
+    background-color: transparent;
+
+    filter: grayscale(100%);
+    cursor: not-allowed;
+    box-shadow: none;
+    pointer-events: none;
+  }
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}
+
+%clearfix {
+  &::after {
+    content: ' ';
+    visibility: hidden;
+    display: block;
+    font-size: 0.1px;
+    height: 0;
+    clear: both;
+  }
+}

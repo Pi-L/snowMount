@@ -1,0 +1,102 @@
+$phoneSmall-width: 321px;
+$phoneBig-width: 577px;
+$tabletSmall-width: 769px;
+$tabletBig-width: 993px;
+$laptop-width: 1201px;
+$desktop-width: 1601px;
+
+// * this approch might be better (or not):
+// * https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
+
+@mixin phoneSmall-sz1($retina: false) {
+  @if ($retina == false) {
+    @media only screen and (max-width: #{$phoneBig-width - 1}) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: #{$phoneBig-width - 1}) and (min-resolution: 2dppx),
+          only screen and (max-width: #{$phoneBig-width - 1}) and (min-resolution: 192dpi) {
+      @content;
+    }
+  }
+}
+
+@mixin phoneBig-sz2($retina: false) {
+  @if ($retina == false) {
+    @media only screen and (min-width: #{$phoneBig-width}) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: #{$phoneBig-width}) and (min-resolution: 2dppx),
+          only screen and (min-width: #{$phoneBig-width}) and (min-resolution: 192dpi) {
+      @content;
+    }
+  }
+}
+
+@mixin tabletSmall-sz3($retina: false) {
+  @if ($retina == false) {
+    @media only screen and (min-width: #{$tabletSmall-width}) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: #{$tabletSmall-width}) and (min-resolution: 2dppx),
+          only screen and (min-width: #{$tabletSmall-width}) and (min-resolution: 192dpi) {
+      @content;
+    }
+  }
+}
+
+@mixin tabletBig-sz4($retina: false) {
+  @if ($retina == false) {
+    @media only screen and (min-width: #{$tabletBig-width}) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: #{$tabletBig-width}) and (min-resolution: 2dppx),
+          only screen and (min-width: #{$tabletBig-width}) and (min-resolution: 192dpi) {
+      @content;
+    }
+  }
+}
+
+@mixin laptop-sz5($retina: false) {
+  @if ($retina == false) {
+    @media only screen and (min-width: #{$laptop-width}) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: #{$laptop-width}) and (min-resolution: 2dppx),
+          only screen and (min-width: #{$laptop-width}) and (min-resolution: 192dpi) {
+      @content;
+    }
+  }
+}
+
+@mixin desktop-sz6($retina: false) {
+  @if ($retina == false) {
+    @media only screen and (min-width: #{$desktop-width}) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: #{$desktop-width}) and (min-resolution: 2dppx),
+          only screen and (min-width: #{$desktop-width}) and (min-resolution: 192dpi) {
+      @content;
+    }
+  }
+}
+
+/*
+@include phoneSmall-sz1(){
+};
+@include phoneBig-sz2(){
+};
+@include tabletSmall-sz3(){
+};
+@include tabletBig-sz4(){
+};
+@include laptop-sz5(){
+};
+@include desktop-sz6(){
+};
+*/

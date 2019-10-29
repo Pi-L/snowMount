@@ -1,0 +1,83 @@
+// --------------------------------------------------------------------
+// GLOBAL
+
+// --------------------------------------------------------------------
+// NAVIGATION
+
+// --------------------------------------------------------------------
+// HEADER
+
+.sm-c-header {
+  @include phoneSmall-sz1(true) {
+    background: transparent url('../images/PhotoMontagnes-mw320_900px@2x.png') top left no-repeat
+      padding-box;
+    background-size: cover;
+  }
+  @include phoneBig-sz2(true) {
+    background: transparent url('../images/PhotoMontagnes-mw576_1520px@2x.png') top left no-repeat
+      padding-box;
+    background-size: cover;
+  }
+  @include tabletSmall-sz3(true) {
+    background: transparent url('../images/PhotoMontagnes-mw768_1624px@2x.png') top left no-repeat
+      padding-box;
+    background-size: cover;
+  }
+  @include tabletBig-sz4(true) {
+    background: transparent url('../images/PhotoMontagnes-mw992_2048px@2x.png') top left no-repeat
+      padding-box;
+    background-size: cover;
+  }
+  @include laptop-sz5(true) {
+    background: transparent url('../images/PhotoMontagnes-mw1200_2732px@2x.png') top left no-repeat
+      padding-box;
+    background-size: cover;
+  }
+  @include desktop-sz6(true) {
+    background: transparent url('../images/PhotoMontagnes-mw1600_3840px@2x.png') top left no-repeat
+      padding-box;
+    background-size: cover;
+  }
+  @include phoneSmall-sz1() {
+    background: transparent url('../images/PhotoMontagnes-mw320_450px.png') top left no-repeat
+      padding-box;
+    background-size: cover;
+  }
+  @include phoneBig-sz2() {
+    background: transparent url('../images/PhotoMontagnes-mw576_760px.png') top left no-repeat
+      padding-box;
+    background-size: cover;
+  }
+  @include tabletSmall-sz3() {
+    background: transparent url('../images/PhotoMontagnes-mw768_812px.png') top left no-repeat
+      padding-box;
+    background-size: cover;
+  }
+  @include tabletBig-sz4() {
+    background: transparent url('../images/PhotoMontagnes-mw992_1024px.png') top left no-repeat
+      padding-box;
+    background-size: cover;
+  }
+  @include laptop-sz5() {
+    background: transparent url('../images/PhotoMontagnes-mw1200_1366px.png') top left no-repeat
+      padding-box;
+    background-size: cover;
+  }
+  @include desktop-sz6() {
+    background: transparent url('../images/PhotoMontagnes-mw1600_1920px.png') top left no-repeat
+      padding-box;
+    background-size: cover;
+  }
+}
+
+// --------------------------------------------------------------------
+// ASIDE "ABOUT"
+
+// --------------------------------------------------------------------
+// SECTION "PORTFOLIO"
+
+// --------------------------------------------------------------------
+// SECTION "TESTIMONIAL"
+
+// --------------------------------------------------------------------
+// FOOTER

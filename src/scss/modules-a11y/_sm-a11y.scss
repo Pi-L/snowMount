@@ -1,0 +1,29 @@
+.sm-u-screenReaderText {
+}
+
+.sm-u-screenReaderText.sm-u-skipToContent {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+
+  &:active,
+  &:focus {
+    @include ft--lato-black();
+    background-color: $sm-color--white;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    color: $sm-color--blue;
+    display: block;
+    visibility: visible;
+    font-size: 14px;
+    line-height: 1.2;
+    height: auto;
+    width: auto;
+    left: 5px;
+    top: 5px;
+    padding: 8px 14px;
+    text-decoration: none;
+    z-index: 100000;
+  }
+}

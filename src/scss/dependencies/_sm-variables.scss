@@ -1,0 +1,208 @@
+// --------------------------------------------------------------------
+// GLOBAL
+// --------------------------------------------------------------------
+// ------- Fonts -----
+$sm-html-fz: 16px;
+$sm-html-lineHeight: 1.2;
+
+// H2s
+$sm-h2-fz: 32px, 32px, 32px, 40px, 52px, 52px;
+$sm-h2-lineHeight: 39px, 39px, 39px, 48px, 62px, 62px;
+
+// ------- Layout -----
+// Width Inner section
+
+$sm-innerSection-width: 290px, 560px, 753px, 992px, 1200px, 1600px;
+
+// Padding section
+
+$sm-section-padding-top: 60px, 60px, 57px, 80px, 110px, 145px;
+$sm-section-padding-bottom: 60px, 60px, 57px, 80px, 110px, 145px;
+
+// ------- General -----
+
+// --------------------------------------------------------------------
+// NAVIGATION
+// --------------------------------------------------------------------
+// ------- Fonts -----
+$sm-nav-fz: 14px, 14px, 14px, 20px, 26px, 32px;
+$sm-nav-lineHeight: 19px, 19px, 19px, 24px, 32px, 39px;
+
+// ------- Layout -----
+$sm-nav-top: 45px, 45px, 45px, 45px, 45px, 45px;
+
+$sm-nav-height: 27px, 40px, 41px, 49px, 64px, 67px;
+
+// ------- General -----
+
+// --------------------------------------------------------------------
+// HEADER
+// --------------------------------------------------------------------
+// ------- Fonts -----
+$sm-header__h1-lineHeight: 53px, 114px, 114px, 114px, 155px, 201px;
+$sm-header__h1__top-fz: 46px, 100px, 100px, 100px, 135px, 175px;
+$sm-header__h1__bottom-fz: 34px, 73px, 73px, 73px, 99px, 128px;
+
+$sm-header__link--ourWork-fz: 24px, 24px, 24px, 24px, 32px, 32px;
+$sm-header__link--ourWork-lineHeight: 29px, 29px, 29px, 29px, 39px, 39px;
+
+// ------- Layout -----
+$sm-header-height: 568px, 960px, 1024px, 768px, 768px, 1076px;
+
+$sm-header__h1-top: 27%, 50%, 50%, 50%, 50%, 50%;
+$sm-header__h1-left: 10%, 5.5%, 50%, 50%, 50%, 50%;
+$sm-header__h1-height: 125px, 269px, 269px, 269px, 366px, 474px;
+$sm-header__h1-width: 196px, 427px, 427px, 427px, 576px, 747px;
+
+$sm-header__link--ourWork-bottom: 85px, 85px, 85px, 85px, 85px, 85px;
+$sm-header__link--ourWork-left: 50%, 50%, 50%, 50%, 50%, 50%;
+
+// ------- General -----
+
+// --------------------------------------------------------------------
+// ASIDE "ABOUT"
+// --------------------------------------------------------------------
+// ------- Fonts -----
+$sm-about__p-fz: 24px, 24px, 24px, 28px, 32px, 42px;
+$sm-about__p-lineHeight: 36px, 36px, 36px, 42px, 60px, 60px;
+
+// ------- Layout -----
+
+$sm-about__h2-padding-bottom: 32px, 32px, 32px, 40px, 50px, 52px;
+
+// ------- General -----
+
+// --------------------------------------------------------------------
+// SECTION "PORTFOLIO"
+// --------------------------------------------------------------------
+// ------- Fonts -----
+
+$sm-portfolio__container__figure__card__h3-fz: 24px, 24px, 24px, 32px, 38px, 52px;
+$sm-portfolio__container__figure__card__h3-lineHeight: 29px, 29px, 29px, 39px, 46px, 62px;
+
+$sm-portfolio__container__figure__card__p-fz: 14px, 16px, 16px, 24px, 24px, 32px;
+$sm-portfolio__container__figure__card__p-lineHeight: 28px, 32px, 32px, 36px, 44px, 60px;
+
+$sm-portfolio__container__figure__card__link--more-fz: 14px, 14px, 14px, 18px, 24px, 32px;
+$sm-portfolio__container__figure__card__link--more-lineHeight: 17px, 17px, 17px, 22px, 29px, 39px;
+
+// ------- Layout -----
+
+$sm-portfolio--content-height: 1613px, 1125px, 851px, 1099px, 1332px, 1716px;
+
+$sm-portfolio__h2-padding-bottom: 60px, 60px, 60px, 96px, 115px, 115px;
+
+$sm-portfolio__container__figure-gap: 16px, 16px, 26px, 20px, 24px, 20px;
+/* $sm-portfolio__container__figure-baseSide: 290px, 272px, 240px, 317px, 384px, 520px; */
+
+$sm-portfolio__container__figure__card--content-maxW: 240px, 430px, 378px, 487px, 590px, 790px;
+
+$sm-portfolio__container__figure__card_p-padding-bottom: 22px, 40px, 40px, 40px, 55px, 55px;
+
+// grid
+
+$sm-portfolio__container-gap: 0, 16px, 24px, 20px, 24px, 20px;
+
+$sm-portfolio__container-height: nth($sm-portfolio--content-height, 1) - nth($sm-h2-lineHeight, 1) -
+    nth($sm-portfolio__h2-padding-bottom, 1),
+  nth($sm-portfolio--content-height, 2) - nth($sm-h2-lineHeight, 2) -
+    nth($sm-portfolio__h2-padding-bottom, 2),
+  nth($sm-portfolio--content-height, 3) - nth($sm-h2-lineHeight, 3) -
+    nth($sm-portfolio__h2-padding-bottom, 3),
+  nth($sm-portfolio--content-height, 4) - nth($sm-h2-lineHeight, 4) -
+    nth($sm-portfolio__h2-padding-bottom, 4),
+  nth($sm-portfolio--content-height, 5) - nth($sm-h2-lineHeight, 5) -
+    nth($sm-portfolio__h2-padding-bottom, 5),
+  nth($sm-portfolio--content-height, 6) - nth($sm-h2-lineHeight, 6) -
+    nth($sm-portfolio__h2-padding-bottom, 6);
+
+// ------- General -----
+
+$sm-portfolio__container__figure__card__link--more-width: 113px, 113px, 111px, 144px, 175px, 235px;
+$sm-portfolio__container__figure__card__link--more-height: 32px, 32px, 32px, 41px, 50px, 67px;
+$sm-portfolio__container__figure__card__link--more-padding: 6px 24px 9px, 6px 24px 9px, 6px 23px 9px,
+  8px 30px 11px, 9px 34px 12px, 14px 47px 14px 50px;
+
+// --------------------------------------------------------------------
+// SECTION "TESTIMONIAL"
+// --------------------------------------------------------------------
+// ------- Fonts -----
+
+$sm-testimonial__slider__card__h3-fz: 24px, 24px, 24px, 36px, 42px, 42px;
+$sm-testimonial__slider__card__h3-lineHeight: 29px, 29px, 29px, 44px, 50px, 50px;
+
+$sm-testimonial__slider__card__p-fz: 16px, 16px, 16px, 24px, 32px, 32px;
+$sm-testimonial__slider__card__p-lineHeight: 32px, 32px, 32px, 48px, 60px, 60px;
+
+// ------- Layout -----
+
+$sm-testimonial--content-height: 534px, 514px, 494px, 684px, 825px, 851px;
+
+$sm-testimonial__radio_label-bottom: 60px, 60px, 57px, 80px, 110px, 145px;
+$sm-testimonial__radio_label-d: 24px, 24px, 24px, 26px, 26px, 26px;
+
+$sm-testimonial__slider-heigth: nth($sm-testimonial--content-height, 1) -
+    nth($sm-testimonial__radio_label-d, 1) - nth($sm-h2-lineHeight, 1),
+  nth($sm-testimonial--content-height, 2) - nth($sm-testimonial__radio_label-d, 2) -
+    nth($sm-h2-lineHeight, 2),
+  nth($sm-testimonial--content-height, 3) - nth($sm-testimonial__radio_label-d, 3) -
+    nth($sm-h2-lineHeight, 3),
+  nth($sm-testimonial--content-height, 4) - nth($sm-testimonial__radio_label-d, 4) -
+    nth($sm-h2-lineHeight, 4),
+  nth($sm-testimonial--content-height, 5) - nth($sm-testimonial__radio_label-d, 5) -
+    nth($sm-h2-lineHeight, 5),
+  nth($sm-testimonial--content-height, 6) - nth($sm-testimonial__radio_label-d, 6) -
+    nth($sm-h2-lineHeight, 6);
+
+$sm-testimonial__slider-width: 290px, 444px, 504px, 656px, 790px, 790px;
+
+$sm-testimonial__slider__img-d: 140px, 176px, 156px, 184px, 228px, 250px;
+$sm-testimonial__slider__img-margin-top: 32px, 32px, 32px, 42px, 52px, 52px;
+
+$sm-testimonial__slider__h3-padding: 32px 0 24px, 32px 0 24px, 32px 0 24px, 42px 0 43px, 52px 0 42px,
+  52px 0 42px;
+
+// ------- General -----
+
+// --------------------------------------------------------------------
+// FOOTER
+// --------------------------------------------------------------------
+// ------- Fonts -----
+$sm-footer__infos__h3-fz: 20px, 20px, 24px, 24px, 32px, 32px;
+$sm-footer__infos__h3-lineHeight: 24px, 24px, 29px, 29px, 39px, 39px;
+
+$sm-footer__infos__p-fz: 14px, 16px, 16px, 16px, 22px, 22px;
+$sm-footer__infos__p-lineHeight: 30px, 30px, 30px, 30px, 30px, 30px;
+
+// ------- Layout -----
+
+$sm-footer-padding: 59px 0, 59px 0, 89px 0, 123px 0 115px, 115px 0 114px, 115px 0 112px;
+
+$sm-footer-heigth: 398px, 398px, 329px, 387px, 396px, 398px;
+
+$sm-footer__logo-width: 170px, 170px, 173px, 236px, 263px, 263px;
+$sm-footer__logo-height: 85px, 85px, 86px, 117px, 130px, 130px;
+
+$sm-footer__infos-gap: 10px, 16px, 24px, 16px, 23px, 20px;
+$sm-footer__infos__h3-padding-bottom: 20px, 20px, 24px, 24px, 32px, 32px;
+
+$sm-footer__infos__location-width: 140px, 178px, 174px, 236px, 282px, 385px;
+$sm-footer__infos__contact-width: 140px, 176px, 174px, 236px, 283px, 385px;
+
+$sm-footer__social-width: 119px, 119px, 174px, 236px, 263px, 263px;
+$sm-footer__social-height: 22px, 22px, 31px, 42px, 42px, 42px;
+
+$sm-footer__infos-width: nth($sm-footer__infos__location-width, 1) +
+    nth($sm-footer__infos__contact-width, 1) + nth($sm-footer__infos-gap, 1),
+  nth($sm-footer__infos__location-width, 2) + nth($sm-footer__infos__contact-width, 2) +
+    nth($sm-footer__infos-gap, 2),
+  nth($sm-footer__infos__location-width, 3) + nth($sm-footer__infos__contact-width, 3) +
+    nth($sm-footer__infos-gap, 3),
+  nth($sm-footer__infos__location-width, 4) + nth($sm-footer__infos__contact-width, 4) +
+    nth($sm-footer__infos-gap, 4),
+  nth($sm-footer__infos__location-width, 5) + nth($sm-footer__infos__contact-width, 5) +
+    nth($sm-footer__infos-gap, 5),
+  nth($sm-footer__infos__location-width, 6) + nth($sm-footer__infos__contact-width, 6) +
+    nth($sm-footer__infos-gap, 6);
+
+// ------- General -----

@@ -4,29 +4,13 @@
 
 @supports (grid-area: auto) {
   // --------------------------------------------------------------------
-  // GLOBAL
-
-  // --------------------------------------------------------------------
-  // NAVIGATION
-
-  // --------------------------------------------------------------------
-  // HEADER
-
-  // --------------------------------------------------------------------
-  // ASIDE "ABOUT"
-
-  // --------------------------------------------------------------------
   // SECTION "PORTFOLIO"
 
   .sm-c-portfolio {
     @include phoneBig-sz2() {
-      height: nth($sm-portfolio--content-height, 2);
-
       &__container {
-        height: nth($sm-portfolio__container-height, 2);
-
         display: grid;
-        gap: nth($sm-portfolio__container-gap, 2);
+
         grid-template-rows: 239px 493px 262px;
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
@@ -37,41 +21,12 @@
         &__figure {
           margin: 0;
 
-          &__card {
-            > h3 {
-              padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, 2) / 2.2;
-            }
-            > p {
-              max-width: nth($sm-portfolio__container__figure__card--content-maxW, 2) / 2.2;
-              padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, 2) / 2.2;
+          @for $i from 1 through 5 {
+            &:nth-of-type(#{$i}) {
+              grid-area: img#{$i};
             }
           }
 
-          &:nth-of-type(1) {
-            grid-area: img1;
-          }
-          &:nth-of-type(2) {
-            grid-area: img2;
-          }
-          &:nth-of-type(3) {
-            grid-area: img3;
-
-            .sm-c-portfolio__container__figure__card {
-              > h3 {
-                padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, 2);
-              }
-              > p {
-                max-width: nth($sm-portfolio__container__figure__card--content-maxW, 2);
-                padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, 2);
-              }
-            }
-          }
-          &:nth-of-type(4) {
-            grid-area: img4;
-          }
-          &:nth-of-type(5) {
-            grid-area: img5;
-          }
           img {
             height: 100%;
             width: 100%;
@@ -81,180 +36,53 @@
     }
 
     @include tabletSmall-sz3() {
-      height: nth($sm-portfolio--content-height, 3);
       &__container {
-        height: nth($sm-portfolio__container-height, 3);
-
-        gap: nth($sm-portfolio__container-gap, 3);
         grid-template-rows: repeat(3, 1fr);
         grid-template-columns: repeat(3, 1fr);
         grid-template-areas:
           'img1 img2 img2'
           'img3 img3 img5'
           'img3 img3 img4';
-
-        &__figure {
-          &__card {
-            > h3 {
-              padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, 3) / 2.5;
-            }
-            > p {
-              max-width: nth($sm-portfolio__container__figure__card--content-maxW, 3) / 2;
-              padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, 3) / 2.5;
-            }
-          }
-
-          &:nth-of-type(2) {
-            grid-area: img2;
-
-            .sm-c-portfolio__container__figure__card {
-              > p {
-                max-width: nth($sm-portfolio__container__figure__card--content-maxW, 3);
-              }
-            }
-          }
-          &:nth-of-type(3) {
-            grid-area: img3;
-
-            .sm-c-portfolio__container__figure__card {
-              > h3 {
-                padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, 3);
-              }
-              > p {
-                max-width: nth($sm-portfolio__container__figure__card--content-maxW, 3);
-                padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, 3);
-              }
-            }
-          }
-        }
       }
     }
 
-    @include tabletBig-sz4() {
-      height: nth($sm-portfolio--content-height, 4);
-      &__container {
-        height: nth($sm-portfolio__container-height, 4);
+    @for $i from 2 through 6 {
+      @include mediaQueries-2to6($i) {
+        height: nth($sm-portfolio--content-height, $i);
 
-        gap: nth($sm-portfolio__container-gap, 4);
+        &__container {
+          height: nth($sm-portfolio__container-height, $i);
+          gap: nth($sm-portfolio__container-gap, $i);
 
-        &__figure {
-          &__card {
-            > h3 {
-              padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, 4) / 2.5;
-            }
-            > p {
-              max-width: nth($sm-portfolio__container__figure__card--content-maxW, 4) / 2;
-              padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, 4) / 2.5;
-            }
-          }
-
-          &:nth-of-type(2) {
-            grid-area: img2;
-
-            .sm-c-portfolio__container__figure__card {
-              > p {
-                max-width: nth($sm-portfolio__container__figure__card--content-maxW, 4);
-              }
-            }
-          }
-          &:nth-of-type(3) {
-            grid-area: img3;
-
-            .sm-c-portfolio__container__figure__card {
+          &__figure {
+            &__card {
               > h3 {
-                padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, 4);
+                padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, $i) / 2.5;
               }
               > p {
-                max-width: nth($sm-portfolio__container__figure__card--content-maxW, 4);
-                padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, 4);
+                max-width: nth($sm-portfolio__container__figure__card--content-maxW, $i) / 2;
+                padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, $i) /
+                  2.5;
               }
             }
-          }
-        }
-      }
-    }
-
-    @include laptop-sz5() {
-      height: nth($sm-portfolio--content-height, 5);
-      &__container {
-        height: nth($sm-portfolio__container-height, 5);
-
-        gap: nth($sm-portfolio__container-gap, 5);
-
-        &__figure {
-          &__card {
-            > h3 {
-              padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, 5) / 2.5;
-            }
-            > p {
-              max-width: nth($sm-portfolio__container__figure__card--content-maxW, 5) / 2;
-              padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, 5) / 2.5;
-            }
-          }
-
-          &:nth-of-type(2) {
-            grid-area: img2;
-
-            .sm-c-portfolio__container__figure__card {
-              > p {
-                max-width: nth($sm-portfolio__container__figure__card--content-maxW, 5);
+            @if ($i != 2) {
+              &:nth-of-type(2) {
+                .sm-c-portfolio__container__figure__card {
+                  > p {
+                    max-width: nth($sm-portfolio__container__figure__card--content-maxW, $i);
+                  }
+                }
               }
             }
-          }
-          &:nth-of-type(3) {
-            grid-area: img3;
-
-            .sm-c-portfolio__container__figure__card {
-              > h3 {
-                padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, 5);
-              }
-              > p {
-                max-width: nth($sm-portfolio__container__figure__card--content-maxW, 5);
-                padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, 5);
-              }
-            }
-          }
-        }
-      }
-    }
-
-    @include desktop-sz6() {
-      height: nth($sm-portfolio--content-height, 6);
-      &__container {
-        height: nth($sm-portfolio__container-height, 6);
-
-        gap: nth($sm-portfolio__container-gap, 6);
-
-        &__figure {
-          &__card {
-            > h3 {
-              padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, 6) / 2.5;
-            }
-            > p {
-              max-width: nth($sm-portfolio__container__figure__card--content-maxW, 6) / 2;
-              padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, 6) / 2.5;
-            }
-          }
-
-          &:nth-of-type(2) {
-            grid-area: img2;
-
-            .sm-c-portfolio__container__figure__card {
-              > p {
-                max-width: nth($sm-portfolio__container__figure__card--content-maxW, 6);
-              }
-            }
-          }
-          &:nth-of-type(3) {
-            grid-area: img3;
-
-            .sm-c-portfolio__container__figure__card {
-              > h3 {
-                padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, 6);
-              }
-              > p {
-                max-width: nth($sm-portfolio__container__figure__card--content-maxW, 6);
-                padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, 6);
+            &:nth-of-type(3) {
+              .sm-c-portfolio__container__figure__card {
+                > h3 {
+                  padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, $i);
+                }
+                > p {
+                  max-width: nth($sm-portfolio__container__figure__card--content-maxW, $i);
+                  padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, $i);
+                }
               }
             }
           }
@@ -262,10 +90,4 @@
       }
     }
   }
-
-  // --------------------------------------------------------------------
-  // SECTION "TESTIMONIAL"
-
-  // --------------------------------------------------------------------
-  // FOOTER
 }

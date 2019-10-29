@@ -70,25 +70,12 @@ body {
           height: nth($sm-portfolio__container__figure__card__link--more-height, 1);
           padding: nth($sm-portfolio__container__figure__card__link--more-padding, 1);
 
-          @include tabletSmall-sz3() {
-            width: nth($sm-portfolio__container__figure__card__link--more-width, 3);
-
-            padding: nth($sm-portfolio__container__figure__card__link--more-padding, 3);
-          }
-          @include tabletBig-sz4() {
-            width: nth($sm-portfolio__container__figure__card__link--more-width, 4);
-            height: nth($sm-portfolio__container__figure__card__link--more-height, 4);
-            padding: nth($sm-portfolio__container__figure__card__link--more-padding, 4);
-          }
-          @include laptop-sz5() {
-            width: nth($sm-portfolio__container__figure__card__link--more-width, 5);
-            height: nth($sm-portfolio__container__figure__card__link--more-height, 5);
-            padding: nth($sm-portfolio__container__figure__card__link--more-padding, 5);
-          }
-          @include desktop-sz6() {
-            width: nth($sm-portfolio__container__figure__card__link--more-width, 6);
-            height: nth($sm-portfolio__container__figure__card__link--more-height, 6);
-            padding: nth($sm-portfolio__container__figure__card__link--more-padding, 6);
+          @for $i from 2 through 6 {
+            @include mediaQueries-2to6($i) {
+              width: nth($sm-portfolio__container__figure__card__link--more-width, $i);
+              height: nth($sm-portfolio__container__figure__card__link--more-height, $i);
+              padding: nth($sm-portfolio__container__figure__card__link--more-padding, $i);
+            }
           }
 
           &::after {
@@ -112,10 +99,10 @@ body {
           }
         }
       }
-      // todo focusability
-      // ? js (toggle class on link--more focus maybe)
+
       &:hover &__card,
-      &:focus &__card {
+      &:focus &__card,
+      &__card.focusedLink {
         opacity: 1;
       }
     }
@@ -132,9 +119,13 @@ body {
     opacity: 0;
     &--label {
       background-color: $sm-testimonial__link-bg-color;
+      background-clip: content-box;
+      padding: 1px;
+
       border-radius: 50%;
       outline: none;
       transition: background-color 0.3s;
+
       &:hover,
       &:active {
         background-color: $sm-testimonial__link--active-bg-color;
@@ -146,7 +137,7 @@ body {
       background-color: $sm-testimonial__link--active-bg-color;
     }
     &:focus + &--label {
-      border: 1px solid darkblue;
+      border: 1px solid $sm-testimonial__link--active-bg-color;
     }
   }
 

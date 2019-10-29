@@ -86,17 +86,70 @@ $desktop-width: 1601px;
   }
 }
 
-/*
-@include phoneSmall-sz1(){
-};
-@include phoneBig-sz2(){
-};
-@include tabletSmall-sz3(){
-};
-@include tabletBig-sz4(){
-};
-@include laptop-sz5(){
-};
-@include desktop-sz6(){
-};
-*/
+// usefull in a loop to add media queries from size (sz) 2 to 6, all at once
+@mixin mediaQueries-2to6($n, $retina: false) {
+  @if ($n == 2) {
+    @if ($retina == false) {
+      @media only screen and (min-width: #{$phoneBig-width}) {
+        @content;
+      }
+    } @else {
+      @media only screen and (min-width: #{$phoneBig-width}) and (min-resolution: 2dppx),
+          only screen and (min-width: #{$phoneBig-width}) and (min-resolution: 192dpi) {
+        @content;
+      }
+    }
+  }
+
+  @if ($n == 3) {
+    @if ($retina == false) {
+      @media only screen and (min-width: #{$tabletSmall-width}) {
+        @content;
+      }
+    } @else {
+      @media only screen and (min-width: #{$tabletSmall-width}) and (min-resolution: 2dppx),
+          only screen and (min-width: #{$tabletSmall-width}) and (min-resolution: 192dpi) {
+        @content;
+      }
+    }
+  }
+
+  @if ($n == 4) {
+    @if ($retina == false) {
+      @media only screen and (min-width: #{$tabletBig-width}) {
+        @content;
+      }
+    } @else {
+      @media only screen and (min-width: #{$tabletBig-width}) and (min-resolution: 2dppx),
+          only screen and (min-width: #{$tabletBig-width}) and (min-resolution: 192dpi) {
+        @content;
+      }
+    }
+  }
+
+  @if ($n == 5) {
+    @if ($retina == false) {
+      @media only screen and (min-width: #{$laptop-width}) {
+        @content;
+      }
+    } @else {
+      @media only screen and (min-width: #{$laptop-width}) and (min-resolution: 2dppx),
+          only screen and (min-width: #{$laptop-width}) and (min-resolution: 192dpi) {
+        @content;
+      }
+    }
+  }
+
+  @if ($n == 6) {
+    @if ($retina == false) {
+      @media only screen and (min-width: #{$desktop-width}) {
+        @content;
+      }
+    } @else {
+      @media only screen and (min-width: #{$desktop-width}) and (min-resolution: 2dppx),
+          only screen and (min-width: #{$desktop-width}) and (min-resolution: 192dpi) {
+        @content;
+      }
+    }
+  }
+}

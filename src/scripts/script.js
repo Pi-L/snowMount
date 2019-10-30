@@ -3,10 +3,12 @@ const BURGERS = document.querySelectorAll('[class*="burger"]');
 const NAV = document.querySelector('.sm-c-nav');
 const TOP = parseInt(window.getComputedStyle(NAV).getPropertyValue('top'), 10);
 const FOLIOLINKS = document.querySelectorAll('.sm-c-portfolio__container__figure__card a');
+const MODAL = document.querySelector('#sayHelloModal');
+const SAYHELLO = document.querySelector('.sm-c-nav__menu__link--hello');
 
 // hide images if not loaded
 IMAGES.forEach(img => {
-    img.addEventListener('error', function (e) {
+    img.addEventListener('error', function hideImageError(e) {
         e.target.style.visibility = 'hidden';
     })
 });
@@ -46,3 +48,14 @@ FOLIOLINKS.forEach((myLink) => {
 });
 
 
+
+document.addEventListener('click', function closeModal(e) {
+
+    if (!MODAL.contains(e.target)) {
+        MODAL.classList.add('inactive');
+    }
+    if (SAYHELLO.contains(e.target)) {
+        MODAL.classList.remove('inactive');
+    }
+    e.stopPropagation();
+});

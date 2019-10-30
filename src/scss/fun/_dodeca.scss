@@ -343,6 +343,7 @@ $default-threshold: pi() / 180/20;
 // ---------------------------------------------------------------------
 
 .funPortfolio {
+  display: block;
   z-index: -1;
   position: absolute;
   overflow: hidden;

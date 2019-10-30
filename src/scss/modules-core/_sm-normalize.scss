@@ -317,5 +317,23 @@ template {
 // Add the correct display in IE 10.
 
 [hidden] {
-  display: none !important;
+  display: none;
+}
+
+// links
+
+a,
+a:hover,
+a:focus,
+a:active,
+a:visited {
+  outline: none;
+}
+
+h1,
+button,
+label,
+img,
+picture {
+  user-select: none;
 }

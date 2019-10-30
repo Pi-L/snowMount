@@ -47,13 +47,12 @@
         <a href="#header" class="sm-c-nav__menu__link" aria-label="Home"><p>Home</p></a>
         <a href="#about" class="sm-c-nav__menu__link" aria-label="About"><p>About</p></a>
         <a href="#footer" class="sm-c-nav__menu__link" aria-label="Contact"><p>Contact</p></a>
-        <!-- todo: modal form-->
-        <a href="#" class="sm-c-nav__menu__link--hello" aria-label="Say Hello"
+        <a href="#sayHelloModal" class="sm-c-nav__menu__link--hello" aria-label="Say Hello"
           ><p>Say&nbsp;Hello</p></a
         >
       </div>
     </nav>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - - - - -derful- - - - - - - -->
     <!-- - - - - - - - - - -  - HEADER - - - - - - - - - - -->
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <header class="sm-c-header" id="header">
@@ -487,9 +486,29 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!-- - - -  - - - - - For Fun - - - - -  - - - - - - - -->
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <div class="sayHelloModal" hidden></div>
+    <div class="sayHelloModal" id="sayHelloModal">
+      <!--  forked from https://codepen.io/merb/pen/qZavOG -->
+      <h2 id="title">Message US</h2>
+      <form id="form" action="#" accept-charset="UTF-8" method="POST">
+        <label for="fname">first name:</label>
+        <input id="fname" type="text" placeholder="first name" required />
 
-    <div class="funPortfolio" id="funPortfolio">
+        <label for="lname">last name:</label>
+        <input id="lname" type="text" placeholder="last name" required />
+
+        <label for="email">email:</label>
+        <input id="email" type="email" placeholder="email" required />
+
+        <label for="message">email:</label>
+        <textarea id="message" placeholder="your message" rows="5" required></textarea>
+
+        <button type="submit">
+          submit
+        </button>
+      </form>
+    </div>
+
+    <a href="#portfolio" class="funPortfolio" id="funPortfolio" hidden>
       <div class="dodecahedron">
         <img src="images/action-active-cold_290px.png" alt="dodecahedron" />
         <img src="images/adorable-animal-breed_290px.png" alt="dodecahedron" />
@@ -502,8 +521,7 @@
         <img src="images/adventure-adventurer-altitude_290px.png" alt="dodecahedron" />
         <img src="images/beatiful-landscape-cold-colors_290px.png" alt="dodecahedron" />
         <img src="images/cold-daylight-fjord_290px.png" alt="dodecahedron" />
-        <img src="images/PhotoMontagnes-mw320_450px.png" alt="dodecahedron" />
-      </div>
-    </div>
+        <img src="images/PhotoMontagnes-mw320_450px.png" alt="dodecahedron" /></div
+    ></a>
   </body>
 </html>

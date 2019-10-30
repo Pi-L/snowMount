@@ -1,0 +1,108 @@
+.sayHelloModal {
+  box-sizing: border-box;
+  position: fixed;
+  top: 50vh;
+  left: calc(50vw - 3px);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  overflow: hidden;
+
+  width: 1px;
+  height: auto;
+  max-height: 5px;
+  min-width: 0;
+  padding: 0;
+  opacity: 0;
+
+  transition: max-height 2s, width 2s 2s, min-width 2s, padding-left 0.5s 3.5s,
+    padding-right 0.5s 3.5s, padding-top 0.5s 1.5s, padding-bottom 0.5s 1.5s, z-index 3.5s,
+    opacity 1.2s 2.8s;
+
+  border-radius: 8px;
+  background: $sm-color--blue;
+  box-shadow: 3px 3px 5px $sm-color--blue-light;
+
+  &:not(.inactive):target {
+    display: block;
+    z-index: 1000;
+    opacity: 1;
+    width: 30vw;
+    height: auto;
+    max-width: 800px;
+    min-width: 260px;
+    max-height: 80vh;
+    padding: 15px 20px;
+
+    transition: max-height 2s 2s, width 2s, min-width 2s, padding-left 0.5s 1.5s,
+      padding-right 0.5s 1.5s, padding-top 0.5s 2s, padding-bottom 0.5s 2s, z-index 3.5s;
+  }
+
+  h2 {
+    color: $sm-about-font-color;
+    padding: 5px 0 0;
+  }
+
+  #form {
+    padding: 10px 0;
+  }
+
+  label {
+    visibility: hidden;
+  }
+
+  input,
+  textarea {
+    width: calc(100%);
+    padding: 10px;
+    margin: 0;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #b2b2b2, -1px -1px 1px #292929;
+    position: relative;
+    resize: none;
+  }
+  input:focus {
+    outline: none;
+    border: 2px solid transparent;
+  }
+
+  input.isRequired {
+    border: 2px solid #e74c3c;
+  }
+
+  /*used a button so to easily add fontawesome's icon to the submit*/
+  button {
+    display: block;
+    border: none;
+    background: $sm-color--white;
+    color: $sm-color--blue;
+    width: 80px;
+    height: 35px;
+    padding: 0;
+    margin: 16px 0 0 auto;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px $sm-color--blue-light;
+    border-radius: 5px;
+    transition: all 0.3s;
+    outline: none;
+    font-weight: 700;
+  }
+  button:hover {
+    background: $sm-color--blue-light;
+    color: $sm-color--white;
+    cursor: pointer;
+  }
+  button:focus {
+    box-shadow: 1px 1px 1px #b2b2b2, -1px -1px 1px #292929;
+  }
+
+  /*style for the error box*/
+  .errorMessages {
+    width: calc(100% - 8px);
+    padding: 20px 0;
+    background: #e74c3c;
+    color: white;
+    border: 2px solid #ec644b;
+    display: none;
+  }
+}

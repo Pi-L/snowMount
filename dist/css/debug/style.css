@@ -1279,6 +1279,12 @@ body {
   text-align: center;
 }
 
+@media only screen and (max-width: 576px) {
+  .sm-c-about > p {
+    min-width: 90%;
+  }
+}
+
 .sm-c-portfolio {
   box-sizing: content-box;
   padding-bottom: 0;
@@ -1487,8 +1493,39 @@ body {
 
 .sm-c-testimonial__radio {
   position: absolute;
-  bottom: 0;
+  z-index: -10000;
+  top: 531px;
   left: 50vw;
+}
+
+@media only screen and (min-width: 577px) {
+  .sm-c-testimonial__radio {
+    top: 511px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .sm-c-testimonial__radio {
+    top: 488px;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .sm-c-testimonial__radio {
+    top: 690px;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  .sm-c-testimonial__radio {
+    top: 847px;
+  }
+}
+
+@media only screen and (min-width: 1601px) {
+  .sm-c-testimonial__radio {
+    top: 908px;
+  }
 }
 
 .sm-c-testimonial__radio--label {
@@ -1568,42 +1605,61 @@ body {
   justify-content: space-around;
   -webkit-box-align: center;
           align-items: center;
+  z-index: 0;
   position: absolute;
   top: 0;
   height: 95%;
   width: 100%;
-  -webkit-transition: left 1s, opacity 0.7s;
-  transition: left 1s, opacity 0.7s;
+  background-color: #fff;
+  -webkit-transition: left 1.5s, opacity 1.5s, -webkit-transform 1.5s;
+  transition: left 1.5s, opacity 1.5s, -webkit-transform 1.5s;
+  transition: left 1.5s, transform 1.5s, opacity 1.5s;
+  transition: left 1.5s, transform 1.5s, opacity 1.5s, -webkit-transform 1.5s;
 }
 
 .sm-c-testimonial__slider__card:nth-of-type(1) {
-  left: 100vw;
+  left: 50vw;
+  -webkit-transform: translateX(55%);
+          transform: translateX(55%);
   opacity: 0;
 }
 
 .sm-c-testimonial__radio#card01:checked ~ .sm-c-testimonial__slider .sm-c-testimonial__slider__card:nth-of-type(1) {
   left: 0;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
   opacity: 1;
+  z-index: 1;
 }
 
 .sm-c-testimonial__slider__card:nth-of-type(2) {
-  left: 100vw;
+  left: 50vw;
+  -webkit-transform: translateX(55%);
+          transform: translateX(55%);
   opacity: 0;
 }
 
 .sm-c-testimonial__radio#card02:checked ~ .sm-c-testimonial__slider .sm-c-testimonial__slider__card:nth-of-type(2) {
   left: 0;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
   opacity: 1;
+  z-index: 1;
 }
 
 .sm-c-testimonial__slider__card:nth-of-type(3) {
-  left: 100vw;
+  left: 50vw;
+  -webkit-transform: translateX(55%);
+          transform: translateX(55%);
   opacity: 0;
 }
 
 .sm-c-testimonial__radio#card03:checked ~ .sm-c-testimonial__slider .sm-c-testimonial__slider__card:nth-of-type(3) {
   left: 0;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
   opacity: 1;
+  z-index: 1;
 }
 
 .sm-c-testimonial__slider__card img {
@@ -2678,10 +2734,19 @@ body {
   z-index: 100000;
 }
 
+#sayHelloModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 0;
+  max-height: 0;
+  z-index: -1;
+}
+
 .sayHelloModal {
   box-sizing: border-box;
   position: fixed;
-  top: 50vh;
+  top: calc(50vh + 45px);
   left: calc(50vw - 3px);
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -2693,8 +2758,8 @@ body {
   min-width: 0;
   padding: 0;
   opacity: 0;
-  -webkit-transition: max-height 2s, width 2s 2s, min-width 2s, padding-left 0.5s 3.5s, padding-right 0.5s 3.5s, padding-top 0.5s 1.5s, padding-bottom 0.5s 1.5s, z-index 3.5s, opacity 1.2s 2.8s;
-  transition: max-height 2s, width 2s 2s, min-width 2s, padding-left 0.5s 3.5s, padding-right 0.5s 3.5s, padding-top 0.5s 1.5s, padding-bottom 0.5s 1.5s, z-index 3.5s, opacity 1.2s 2.8s;
+  -webkit-transition: max-height 2s, width 2s 2s, min-width 2s 2s, padding-left 0.5s 3.5s, padding-right 0.5s 3.5s, padding-top 0.5s 1.5s, padding-bottom 0.5s 1.5s, z-index 3.5s, opacity 1.2s 2.8s;
+  transition: max-height 2s, width 2s 2s, min-width 2s 2s, padding-left 0.5s 3.5s, padding-right 0.5s 3.5s, padding-top 0.5s 1.5s, padding-bottom 0.5s 1.5s, z-index 3.5s, opacity 1.2s 2.8s;
   border-radius: 8px;
   background: #3693d6;
   box-shadow: 3px 3px 5px #9bc0ff;
@@ -2702,7 +2767,7 @@ body {
   /*style for the error box*/
 }
 
-.sayHelloModal:not(.inactive):target {
+#sayHelloModal:target + .sayHelloModal:not(.inactive) {
   display: block;
   z-index: 1000;
   opacity: 1;

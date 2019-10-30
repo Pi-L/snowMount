@@ -3,7 +3,7 @@ const BURGERS = document.querySelectorAll('[class*="burger"]');
 const NAV = document.querySelector('.sm-c-nav');
 const TOP = parseInt(window.getComputedStyle(NAV).getPropertyValue('top'), 10);
 const FOLIOLINKS = document.querySelectorAll('.sm-c-portfolio__container__figure__card a');
-const MODAL = document.querySelector('#sayHelloModal');
+const MODAL = document.querySelector('.sayHelloModal');
 const SAYHELLO = document.querySelector('.sm-c-nav__menu__link--hello');
 
 // hide images if not loaded

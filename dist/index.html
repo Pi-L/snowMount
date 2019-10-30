@@ -486,9 +486,10 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!-- - - -  - - - - - For Fun - - - - -  - - - - - - - -->
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <div class="sayHelloModal" id="sayHelloModal">
+    <div class="sayHelloModal--origin" aria-hidden="true" id="sayHelloModal" tabindex="-1"></div>
+    <div class="sayHelloModal">
       <!--  forked from https://codepen.io/merb/pen/qZavOG -->
-      <h2 id="title">Message US</h2>
+      <h2 id="title">Message us</h2>
       <form id="form" action="#" accept-charset="UTF-8" method="POST">
         <label for="fname">first name:</label>
         <input id="fname" type="text" placeholder="first name" required />

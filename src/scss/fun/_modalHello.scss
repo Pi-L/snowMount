@@ -1,7 +1,16 @@
+#sayHelloModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 0;
+  max-height: 0;
+  z-index: -1;
+}
+
 .sayHelloModal {
   box-sizing: border-box;
   position: fixed;
-  top: 50vh;
+  top: calc(50vh + 45px);
   left: calc(50vw - 3px);
   transform: translate(-50%, -50%);
   z-index: -1;
@@ -14,7 +23,7 @@
   padding: 0;
   opacity: 0;
 
-  transition: max-height 2s, width 2s 2s, min-width 2s, padding-left 0.5s 3.5s,
+  transition: max-height 2s, width 2s 2s, min-width 2s 2s, padding-left 0.5s 3.5s,
     padding-right 0.5s 3.5s, padding-top 0.5s 1.5s, padding-bottom 0.5s 1.5s, z-index 3.5s,
     opacity 1.2s 2.8s;
 
@@ -22,7 +31,7 @@
   background: $sm-color--blue;
   box-shadow: 3px 3px 5px $sm-color--blue-light;
 
-  &:not(.inactive):target {
+  #sayHelloModal:target + &:not(.inactive) {
     display: block;
     z-index: 1000;
     opacity: 1;

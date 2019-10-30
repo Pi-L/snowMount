@@ -143,6 +143,9 @@ body {
   }
   > p {
     text-align: center;
+    @include phoneSmall-sz1() {
+      min-width: 90%;
+    }
   }
 }
 
@@ -259,8 +262,14 @@ body {
 
   &__radio {
     position: absolute;
-    bottom: 0;
+    z-index: -10000;
+    top: nth($sm-testimonial__slider-heigth, 1) + nth($sm-section-padding-top, 1);
     left: 50vw;
+    @for $i from 2 through 6 {
+      @include mediaQueries-2to6($i) {
+        top: nth($sm-testimonial__slider-heigth, $i) + nth($sm-section-padding-top, $i);
+      }
+    }
 
     &--label {
       position: absolute;
@@ -296,27 +305,34 @@ body {
     height: nth($sm-testimonial__slider-heigth, 1);
     width: nth($sm-testimonial__slider-width, 1);
 
+    $tempColors: red, green, yellow;
+
     &__card {
       box-sizing: border-box;
       display: flex;
       flex-flow: column nowrap;
       justify-content: space-around;
       align-items: center;
-
+      z-index: 0;
       position: absolute;
       top: 0;
       height: 95%;
       width: 100%;
-
-      transition: left 1s, opacity 0.7s;
+      background-color: $sm-testimonial-bg-color;
+      transition: left 1.5s, transform 1.5s, opacity 1.5s;
 
       @for $i from 1 through 3 {
         &:nth-of-type(#{$i}) {
-          left: 100vw;
+          left: 50vw;
+          transform: translateX(55%);
           opacity: 0;
+
           .sm-c-testimonial__radio#card0#{$i}:checked ~ .sm-c-testimonial__slider & {
             left: 0;
+            transform: translateX(0);
             opacity: 1;
+
+            z-index: 1;
           }
         }
       }

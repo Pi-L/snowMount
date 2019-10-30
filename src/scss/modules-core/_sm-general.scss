@@ -58,7 +58,11 @@ body {
   &__container {
     &__figure {
       &__card {
-        background-color: $sm-portfolio__container__figure__card-bg-color;
+        //  background-color: $sm-portfolio__container__figure__card-bg-color;
+        background: url(../svg/FiltreBleu.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0;
         transition: opacity 0.3s;
 
         &__link--more {

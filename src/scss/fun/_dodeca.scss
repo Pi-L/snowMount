@@ -1,0 +1,407 @@
+// -------------------------------------------------------------------------
+// -------------------- Start of Math Functions ---------------------------
+// -------------------------------------------------------------------------
+
+@function pi() {
+  @return 3.1415926535897932384626433832795028841971693993751;
+}
+
+@function phi() {
+  @return (1 + sqrt(5)) / 2;
+}
+
+@function pow($number, $exponent) {
+  @if (round($exponent) != $exponent) {
+    @return exp($exponent * ln($number));
+  }
+
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+@function fact($value) {
+  $result: 1;
+
+  @if $value == 0 {
+    @return $result;
+  }
+
+  @for $index from 1 through $value {
+    $result: $result * $index;
+  }
+
+  @return $result;
+}
+
+@function sqrt($number) {
+  @return exp(0.5 * ln($number));
+}
+
+@function summation($iteratee, $input, $initial: 0, $limit: 100) {
+  $sum: 0;
+
+  @for $index from $initial to $limit {
+    // added get-function()
+    $sum: $sum + call(get-function($iteratee), $input, $index);
+  }
+
+  @return $sum;
+}
+
+@function exp-maclaurin($x, $n) {
+  @return (pow($x, $n) / fact($n));
+}
+
+@function exp($value) {
+  @return summation('exp-maclaurin', $value, 0, 100);
+}
+
+@function ln-maclaurin($x, $n) {
+  @return (pow(-1, $n + 1) / $n) * (pow($x - 1, $n));
+}
+
+@function ln($value) {
+  $ten-exp: 1;
+  $ln-ten: 2.302585092994046;
+
+  @while ($value > pow(10, $ten-exp)) {
+    $ten-exp: $ten-exp + 1;
+  }
+
+  @return summation(ln-maclaurin, $value / pow(10, $ten-exp), 1, 100) + $ten-exp * $ln-ten;
+}
+
+@function rad($angle) {
+  $unit: unit($angle);
+  $unitless: $angle / ($angle * 0 + 1);
+  // If the angle has 'deg' as unit, convert to radians.
+  @if $unit == deg {
+    $unitless: $unitless / 180 * pi();
+  }
+  @return $unitless;
+}
+
+@function sin($angle) {
+  $sin: 0;
+  $angle: rad($angle);
+  // Iterate a bunch of times.
+  @for $i from 0 through 10 {
+    $sin: $sin + pow(-1, $i) * pow($angle, (2 * $i + 1)) / fact(2 * $i + 1);
+  }
+  @return $sin;
+}
+
+@function cos($angle) {
+  $cos: 0;
+  $angle: rad($angle);
+  // Iterate a bunch of times.
+  @for $i from 0 through 10 {
+    $cos: $cos + pow(-1, $i) * pow($angle, 2 * $i) / fact(2 * $i);
+  }
+  @return $cos;
+}
+
+@function tan($angle) {
+  @return sin($angle) / cos($angle);
+}
+
+// ! more trigo functions.
+// thanks to Ana Tudor @
+// https://codepen.io/thebabydino/pen/KHpys
+
+$default-threshold: pi() / 180/20;
+
+@function convert-angle($value, $unit-name) {
+  $factors: (
+    rad: 1rad,
+    deg: 180deg / pi(),
+    grad: 200grad / pi(),
+    turn: 0.5turn / pi (),
+  );
+
+  @if not unitless($value) {
+    @warn '#{$value} should be unitless';
+    @return false;
+  }
+
+  @if not map-has-key($factors, $unit-name) {
+    @warn 'unit #{$unit-name} is not a valid unit - please make sure it is either deg,rad, grad or turn';
+    @return false;
+  }
+
+  @return $value * map-get($factors, $unit-name);
+}
+
+@function asin($z, $unit-name: deg, $threshold: $default-threshold) {
+  $sum: 0;
+  $complement: false;
+  $sign: if($z != 0, $z/abs($z), 1);
+  $z: abs($z);
+
+  @if $z > 1 {
+    @warn 'illegal `#{$z}` value for function';
+    @return false;
+  }
+
+  @if $z > sin(pi() / 4) {
+    $complement: true;
+    $z: sqrt(1 - pow($z, 2));
+  }
+
+  $term: $z;
+  $i: 0;
+  $k: 1;
+
+  @while $term > $threshold {
+    $sum: $sum + $term;
+
+    $i: $i + 1;
+    $k: $k * (2 * $i - 1)/ (2 * $i);
+    $j: 2 * $i + 1;
+
+    $term: $k * pow($z, $j) / $j;
+  }
+
+  @return convert-angle($sign * (if($complement, pi() / 2 - $sum, $sum)), $unit-name);
+}
+
+@function acos($z, $unit-name: deg, $threshold: $default-threshold) {
+  @return convert-angle(pi() / 2, $unit-name) - asin($z, $unit-name, $threshold);
+}
+
+@function atan($z, $unit-name: deg, $threshold: $default-threshold) {
+  @return asin($z/sqrt(1 + pow($z, 2)), $unit-name, $threshold);
+}
+
+// ----------------------------------------------------------------------
+// -------------------- End of Math Functions ---------------------------
+// ----------------------------------------------------------------------
+
+// Big thank you to Ana Tudor who's work made up for my long forgotten trigonometry courses!
+
+// ! I import a big set of math functions from :
+// https://codepen.io/pi-L/pen/LYYGqNW?editors=0100
+// (I am not using compass)
+
+// * A mixin to make a box into any regular polygon
+// thanks to Ana Tudor @ https://codepen.io/thebabydino/pen/mEgzxd?editors=1900
+// ---------------------------------------------------------------------
+// ------------------------- Clip Path Polygon Mixin -------------------
+// ---------------------------------------------------------------------
+
+@mixin polygon($n, $oa: -90deg) {
+  $n: round($n);
+  $r: 50%;
+  $ba: 360deg / $n;
+  $vertices: ();
+
+  @for $i from 0 to $n {
+    $ca: $i * $ba + $oa;
+
+    $x: $r * (1 + cos($ca));
+    $y: $r * (1 + sin($ca));
+
+    $vertices: $vertices, $x $y;
+  }
+
+  clip-path: polygon($vertices);
+}
+
+// ---------------------------------------------------------------------
+// --------------------- A mixin to place each faces -------------------
+// --------------------- Also used to call the polygon mixin -----------
+// ---------------------------------------------------------------------
+
+@mixin p-set($ang, $angY, $angZ, $transZ) {
+  transform: rotateZ($ang) rotateY($angY) translateZ($transZ) rotateZ($angZ);
+  @include polygon(5);
+  background-color: transparent;
+}
+
+// -----------------------------------------------------------------
+// ------------------ Dodecahedron mixin ---------------------------
+// -----------------------------------------------------------------
+// * thanks to :
+// https://codepen.io/Isaione/pen/EVOrPJ
+// https://codepen.io/YuRen/pen/NRXajk
+// https://codepen.io/thebabydino/pen/qDziw?editors=1100
+
+@mixin dodecahedron($sidePlate: 153px) {
+  // https://en.wikipedia.org/wiki/Regular_dodecahedron#Dimensions
+  $translationFactor: 1/8 * (3 + sqrt(5));
+  $transZ: $sidePlate * $translationFactor;
+  $sideCarousel: $sidePlate * 2;
+
+  width: $sideCarousel;
+  height: $sideCarousel;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  transform: scale3d(1, 1, 1);
+  background-color: transparent;
+
+  .dodecahedron {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: spinDodecahedron 40s ease-in-out infinite;
+    @content;
+
+    @keyframes spinDodecahedron {
+      0% {
+        transform: rotateX(360deg) rotateY(0);
+      }
+      25% {
+        transform: rotateX(180deg) rotateY(180deg);
+      }
+      50% {
+        transform: rotateX(90deg) rotateY(90deg);
+      }
+      75% {
+        transform: rotateX(270deg) rotateY(270deg);
+      }
+      100% {
+        transform: rotateX(0deg) rotateY(360deg);
+      }
+    }
+
+    > * {
+      position: absolute;
+      display: block;
+      object-fit: cover;
+      width: $sidePlate;
+      height: $sidePlate;
+      left: 25%;
+      top: 25%;
+
+      $angle3D-1: 90 - (acos(-1 / sqrt(5)) / 2);
+      $angle3D-2: acos(-1 / sqrt(5)) / 2;
+
+      &:nth-of-type(1) {
+        @include p-set(0deg, $angle3D-1, 90deg, $transZ);
+      }
+
+      &:nth-of-type(2) {
+        @include p-set(90deg, $angle3D-2, -90deg, $transZ);
+      }
+
+      &:nth-of-type(3) {
+        @include p-set($angle3D-1, 90deg, 180deg, $transZ);
+      }
+
+      &:nth-of-type(4) {
+        @include p-set(0deg, -$angle3D-1, -90deg, $transZ);
+      }
+
+      &:nth-of-type(5) {
+        @include p-set(90deg, -$angle3D-2, 90deg, $transZ);
+      }
+
+      &:nth-of-type(6) {
+        @include p-set(-$angle3D-1, 90deg, 0deg, $transZ);
+      }
+
+      &:nth-of-type(7) {
+        @include p-set(0deg, $angle3D-1, -90deg, -$transZ);
+      }
+
+      &:nth-of-type(8) {
+        @include p-set(90deg, $angle3D-2, 90deg, -$transZ);
+      }
+
+      &:nth-of-type(9) {
+        @include p-set($angle3D-1, 90deg, 0deg, -$transZ);
+      }
+
+      &:nth-of-type(10) {
+        @include p-set(0deg, -$angle3D-1, 90deg, -$transZ);
+      }
+
+      &:nth-of-type(11) {
+        @include p-set(90deg, -$angle3D-2, -90deg, -$transZ);
+      }
+
+      &:nth-of-type(12) {
+        @include p-set(-$angle3D-1, 90deg, 180deg, -$transZ);
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------------------
+// ------------------ End of Dodecahedron mixin ------------------------
+// ---------------------------------------------------------------------
+
+.funPortfolio {
+  z-index: -1;
+  position: absolute;
+  overflow: hidden;
+  transition: width 1s, height 2s, top 1.5s, left 2s, z-index 2s;
+
+  img {
+    opacity: 0.7;
+  }
+
+  @include dodecahedron(nth($sm-nav-height, 1)) {
+    animation-play-state: paused;
+  }
+  right: nth($sm-nav-height, 1);
+  top: -3 * nth($sm-nav-height, 1);
+
+  #header:target ~ & {
+    z-index: 1000;
+    top: 4 * nth($sm-nav-height, 1);
+
+    .dodecahedron {
+      animation-play-state: running;
+      &::after {
+        animation-play-state: running;
+      }
+    }
+  }
+
+  & .dodecahedron::after {
+    content: '';
+    position: absolute;
+    $distFromBorder: 0;
+    top: $distFromBorder;
+    left: $distFromBorder;
+    right: $distFromBorder;
+    bottom: $distFromBorder;
+    border-radius: 50%;
+    border: 3px solid $sm-color--white;
+
+    animation: spinDodecahedron 40s ease-in-out infinite;
+    animation-direction: reverse;
+    animation-play-state: paused;
+  }
+
+  @for $i from 2 through 6 {
+    @include mediaQueries-2to6($i) {
+      @include dodecahedron(nth($sm-nav-height, $i)) {
+        animation-play-state: paused;
+      }
+      right: nth($sm-nav-height, $i);
+
+      top: -3 * nth($sm-nav-height, $i);
+
+      #header:target ~ & {
+        @if $i < 3 {
+          top: 4 * nth($sm-nav-height, $i);
+        } @else {
+          top: 2.5 * nth($sm-nav-height, $i);
+        }
+      }
+    }
+  }
+}

@@ -1054,7 +1054,7 @@ body {
 .sm-c-nav {
   position: fixed;
   top: 45px;
-  left: 50%;
+  left: 50vw;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   height: 27px;
@@ -1263,10 +1263,6 @@ body {
 .sm-c-portfolio {
   box-sizing: content-box;
   padding-bottom: 0;
-  height: 1613px;
-  /*  &__container {
-    height: nth($sm-portfolio__container-height, 1);
-  } */
 }
 
 .sm-c-portfolio > * {
@@ -1308,6 +1304,10 @@ body {
   }
 }
 
+.sm-c-portfolio__container {
+  min-width: 90%;
+}
+
 .sm-c-portfolio__container__figure {
   position: relative;
   margin: 0;
@@ -1320,14 +1320,13 @@ body {
   margin-bottom: 0;
 }
 
-.sm-c-portfolio__container__figure > img {
+.sm-c-portfolio__container__figure img {
   width: 100%;
   height: auto;
 }
 
 .sm-c-portfolio__container__figure__card {
   position: absolute;
-  opacity: 0;
   top: 0;
   left: 0;
   right: 0;
@@ -1470,14 +1469,14 @@ body {
 .sm-c-testimonial__radio {
   position: absolute;
   bottom: 0;
-  left: 50%;
+  left: 50vw;
 }
 
 .sm-c-testimonial__radio--label {
   position: absolute;
   display: block;
   bottom: 60px;
-  left: 50%;
+  left: 50vw;
   -webkit-transform: translateX(-200%);
           transform: translateX(-200%);
   width: 24px;
@@ -2035,7 +2034,10 @@ body {
 }
 
 .sm-c-portfolio__container__figure__card {
-  background-color: rgba(54, 147, 214, 0.65);
+  background: url(../svg/FiltreBleu.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
@@ -2237,12 +2239,21 @@ body {
   width: 150vw;
   height: 100%;
   z-index: -1;
-  background-color: rgba(54, 147, 214, 0.8);
+  background: url(../svg/FiltreBleu.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sm-c-nav > a:first-of-type {
+  display: block;
+  height: 100%;
 }
 
 .sm-c-nav__logo {
   height: 27px;
   width: auto;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .sm-c-nav__burger {
@@ -2646,4 +2657,1057 @@ body {
   padding: 8px 14px;
   text-decoration: none;
   z-index: 100000;
+}
+
+.funPortfolio {
+  z-index: -1;
+  position: absolute;
+  overflow: hidden;
+  -webkit-transition: width 1s, height 2s, top 1.5s, left 2s, z-index 2s;
+  transition: width 1s, height 2s, top 1.5s, left 2s, z-index 2s;
+  width: 54px;
+  height: 54px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%;
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+  background-color: transparent;
+  right: 27px;
+  top: -81px;
+}
+
+.funPortfolio img {
+  opacity: 0.7;
+}
+
+.funPortfolio .dodecahedron {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-animation: spinDodecahedron 40s ease-in-out infinite;
+          animation: spinDodecahedron 40s ease-in-out infinite;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+@-webkit-keyframes spinDodecahedron {
+  0% {
+    -webkit-transform: rotateX(360deg) rotateY(0);
+            transform: rotateX(360deg) rotateY(0);
+  }
+  25% {
+    -webkit-transform: rotateX(180deg) rotateY(180deg);
+            transform: rotateX(180deg) rotateY(180deg);
+  }
+  50% {
+    -webkit-transform: rotateX(90deg) rotateY(90deg);
+            transform: rotateX(90deg) rotateY(90deg);
+  }
+  75% {
+    -webkit-transform: rotateX(270deg) rotateY(270deg);
+            transform: rotateX(270deg) rotateY(270deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg) rotateY(360deg);
+            transform: rotateX(0deg) rotateY(360deg);
+  }
+}
+
+@keyframes spinDodecahedron {
+  0% {
+    -webkit-transform: rotateX(360deg) rotateY(0);
+            transform: rotateX(360deg) rotateY(0);
+  }
+  25% {
+    -webkit-transform: rotateX(180deg) rotateY(180deg);
+            transform: rotateX(180deg) rotateY(180deg);
+  }
+  50% {
+    -webkit-transform: rotateX(90deg) rotateY(90deg);
+            transform: rotateX(90deg) rotateY(90deg);
+  }
+  75% {
+    -webkit-transform: rotateX(270deg) rotateY(270deg);
+            transform: rotateX(270deg) rotateY(270deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg) rotateY(360deg);
+            transform: rotateX(0deg) rotateY(360deg);
+  }
+}
+
+.funPortfolio .dodecahedron > * {
+  position: absolute;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 27px;
+  height: 27px;
+  left: 25%;
+  top: 25%;
+}
+
+.funPortfolio .dodecahedron > *:nth-of-type(1) {
+  -webkit-transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(17.67173px) rotateZ(90deg);
+          transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(17.67173px) rotateZ(90deg);
+  -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+          clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+  background-color: transparent;
+}
+
+.funPortfolio .dodecahedron > *:nth-of-type(2) {
+  -webkit-transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(17.67173px) rotateZ(-90deg);
+          transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(17.67173px) rotateZ(-90deg);
+  -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+          clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+  background-color: transparent;
+}
+
+.funPortfolio .dodecahedron > *:nth-of-type(3) {
+  -webkit-transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(17.67173px) rotateZ(180deg);
+          transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(17.67173px) rotateZ(180deg);
+  -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+          clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+  background-color: transparent;
+}
+
+.funPortfolio .dodecahedron > *:nth-of-type(4) {
+  -webkit-transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(17.67173px) rotateZ(-90deg);
+          transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(17.67173px) rotateZ(-90deg);
+  -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+          clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+  background-color: transparent;
+}
+
+.funPortfolio .dodecahedron > *:nth-of-type(5) {
+  -webkit-transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(17.67173px) rotateZ(90deg);
+          transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(17.67173px) rotateZ(90deg);
+  -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+          clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+  background-color: transparent;
+}
+
+.funPortfolio .dodecahedron > *:nth-of-type(6) {
+  -webkit-transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(17.67173px) rotateZ(0deg);
+          transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(17.67173px) rotateZ(0deg);
+  -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+          clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+  background-color: transparent;
+}
+
+.funPortfolio .dodecahedron > *:nth-of-type(7) {
+  -webkit-transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(-17.67173px) rotateZ(-90deg);
+          transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(-17.67173px) rotateZ(-90deg);
+  -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+          clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+  background-color: transparent;
+}
+
+.funPortfolio .dodecahedron > *:nth-of-type(8) {
+  -webkit-transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(-17.67173px) rotateZ(90deg);
+          transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(-17.67173px) rotateZ(90deg);
+  -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+          clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+  background-color: transparent;
+}
+
+.funPortfolio .dodecahedron > *:nth-of-type(9) {
+  -webkit-transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(-17.67173px) rotateZ(0deg);
+          transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(-17.67173px) rotateZ(0deg);
+  -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+          clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+  background-color: transparent;
+}
+
+.funPortfolio .dodecahedron > *:nth-of-type(10) {
+  -webkit-transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(-17.67173px) rotateZ(90deg);
+          transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(-17.67173px) rotateZ(90deg);
+  -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+          clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+  background-color: transparent;
+}
+
+.funPortfolio .dodecahedron > *:nth-of-type(11) {
+  -webkit-transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(-17.67173px) rotateZ(-90deg);
+          transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(-17.67173px) rotateZ(-90deg);
+  -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+          clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+  background-color: transparent;
+}
+
+.funPortfolio .dodecahedron > *:nth-of-type(12) {
+  -webkit-transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(-17.67173px) rotateZ(180deg);
+          transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(-17.67173px) rotateZ(180deg);
+  -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+          clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+  background-color: transparent;
+}
+
+#header:target ~ .funPortfolio {
+  z-index: 1000;
+  top: 108px;
+}
+
+#header:target ~ .funPortfolio .dodecahedron {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+#header:target ~ .funPortfolio .dodecahedron::after {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.funPortfolio .dodecahedron::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  -webkit-animation: spinDodecahedron 40s ease-in-out infinite;
+          animation: spinDodecahedron 40s ease-in-out infinite;
+  animation-direction: reverse;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+@media only screen and (min-width: 577px) {
+  .funPortfolio {
+    width: 80px;
+    height: 80px;
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    -webkit-perspective-origin: 50% 50%;
+            perspective-origin: 50% 50%;
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+    background-color: transparent;
+    right: 40px;
+    top: -120px;
+  }
+  .funPortfolio .dodecahedron {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-animation: spinDodecahedron 40s ease-in-out infinite;
+            animation: spinDodecahedron 40s ease-in-out infinite;
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+  }
+  @-webkit-keyframes spinDodecahedron {
+    0% {
+      -webkit-transform: rotateX(360deg) rotateY(0);
+              transform: rotateX(360deg) rotateY(0);
+    }
+    25% {
+      -webkit-transform: rotateX(180deg) rotateY(180deg);
+              transform: rotateX(180deg) rotateY(180deg);
+    }
+    50% {
+      -webkit-transform: rotateX(90deg) rotateY(90deg);
+              transform: rotateX(90deg) rotateY(90deg);
+    }
+    75% {
+      -webkit-transform: rotateX(270deg) rotateY(270deg);
+              transform: rotateX(270deg) rotateY(270deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg) rotateY(360deg);
+              transform: rotateX(0deg) rotateY(360deg);
+    }
+  }
+  @keyframes spinDodecahedron {
+    0% {
+      -webkit-transform: rotateX(360deg) rotateY(0);
+              transform: rotateX(360deg) rotateY(0);
+    }
+    25% {
+      -webkit-transform: rotateX(180deg) rotateY(180deg);
+              transform: rotateX(180deg) rotateY(180deg);
+    }
+    50% {
+      -webkit-transform: rotateX(90deg) rotateY(90deg);
+              transform: rotateX(90deg) rotateY(90deg);
+    }
+    75% {
+      -webkit-transform: rotateX(270deg) rotateY(270deg);
+              transform: rotateX(270deg) rotateY(270deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg) rotateY(360deg);
+              transform: rotateX(0deg) rotateY(360deg);
+    }
+  }
+  .funPortfolio .dodecahedron > * {
+    position: absolute;
+    display: block;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 40px;
+    height: 40px;
+    left: 25%;
+    top: 25%;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(1) {
+    -webkit-transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(26.18034px) rotateZ(90deg);
+            transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(26.18034px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(2) {
+    -webkit-transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(26.18034px) rotateZ(-90deg);
+            transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(26.18034px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(3) {
+    -webkit-transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(26.18034px) rotateZ(180deg);
+            transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(26.18034px) rotateZ(180deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(4) {
+    -webkit-transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(26.18034px) rotateZ(-90deg);
+            transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(26.18034px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(5) {
+    -webkit-transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(26.18034px) rotateZ(90deg);
+            transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(26.18034px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(6) {
+    -webkit-transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(26.18034px) rotateZ(0deg);
+            transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(26.18034px) rotateZ(0deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(7) {
+    -webkit-transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(-26.18034px) rotateZ(-90deg);
+            transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(-26.18034px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(8) {
+    -webkit-transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(-26.18034px) rotateZ(90deg);
+            transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(-26.18034px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(9) {
+    -webkit-transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(-26.18034px) rotateZ(0deg);
+            transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(-26.18034px) rotateZ(0deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(10) {
+    -webkit-transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(-26.18034px) rotateZ(90deg);
+            transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(-26.18034px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(11) {
+    -webkit-transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(-26.18034px) rotateZ(-90deg);
+            transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(-26.18034px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(12) {
+    -webkit-transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(-26.18034px) rotateZ(180deg);
+            transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(-26.18034px) rotateZ(180deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  #header:target ~ .funPortfolio {
+    top: 160px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .funPortfolio {
+    width: 82px;
+    height: 82px;
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    -webkit-perspective-origin: 50% 50%;
+            perspective-origin: 50% 50%;
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+    background-color: transparent;
+    right: 41px;
+    top: -123px;
+  }
+  .funPortfolio .dodecahedron {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-animation: spinDodecahedron 40s ease-in-out infinite;
+            animation: spinDodecahedron 40s ease-in-out infinite;
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+  }
+  @-webkit-keyframes spinDodecahedron {
+    0% {
+      -webkit-transform: rotateX(360deg) rotateY(0);
+              transform: rotateX(360deg) rotateY(0);
+    }
+    25% {
+      -webkit-transform: rotateX(180deg) rotateY(180deg);
+              transform: rotateX(180deg) rotateY(180deg);
+    }
+    50% {
+      -webkit-transform: rotateX(90deg) rotateY(90deg);
+              transform: rotateX(90deg) rotateY(90deg);
+    }
+    75% {
+      -webkit-transform: rotateX(270deg) rotateY(270deg);
+              transform: rotateX(270deg) rotateY(270deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg) rotateY(360deg);
+              transform: rotateX(0deg) rotateY(360deg);
+    }
+  }
+  @keyframes spinDodecahedron {
+    0% {
+      -webkit-transform: rotateX(360deg) rotateY(0);
+              transform: rotateX(360deg) rotateY(0);
+    }
+    25% {
+      -webkit-transform: rotateX(180deg) rotateY(180deg);
+              transform: rotateX(180deg) rotateY(180deg);
+    }
+    50% {
+      -webkit-transform: rotateX(90deg) rotateY(90deg);
+              transform: rotateX(90deg) rotateY(90deg);
+    }
+    75% {
+      -webkit-transform: rotateX(270deg) rotateY(270deg);
+              transform: rotateX(270deg) rotateY(270deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg) rotateY(360deg);
+              transform: rotateX(0deg) rotateY(360deg);
+    }
+  }
+  .funPortfolio .dodecahedron > * {
+    position: absolute;
+    display: block;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 41px;
+    height: 41px;
+    left: 25%;
+    top: 25%;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(1) {
+    -webkit-transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(26.83485px) rotateZ(90deg);
+            transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(26.83485px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(2) {
+    -webkit-transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(26.83485px) rotateZ(-90deg);
+            transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(26.83485px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(3) {
+    -webkit-transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(26.83485px) rotateZ(180deg);
+            transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(26.83485px) rotateZ(180deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(4) {
+    -webkit-transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(26.83485px) rotateZ(-90deg);
+            transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(26.83485px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(5) {
+    -webkit-transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(26.83485px) rotateZ(90deg);
+            transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(26.83485px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(6) {
+    -webkit-transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(26.83485px) rotateZ(0deg);
+            transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(26.83485px) rotateZ(0deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(7) {
+    -webkit-transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(-26.83485px) rotateZ(-90deg);
+            transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(-26.83485px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(8) {
+    -webkit-transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(-26.83485px) rotateZ(90deg);
+            transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(-26.83485px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(9) {
+    -webkit-transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(-26.83485px) rotateZ(0deg);
+            transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(-26.83485px) rotateZ(0deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(10) {
+    -webkit-transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(-26.83485px) rotateZ(90deg);
+            transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(-26.83485px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(11) {
+    -webkit-transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(-26.83485px) rotateZ(-90deg);
+            transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(-26.83485px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(12) {
+    -webkit-transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(-26.83485px) rotateZ(180deg);
+            transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(-26.83485px) rotateZ(180deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  #header:target ~ .funPortfolio {
+    top: 102.5px;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .funPortfolio {
+    width: 98px;
+    height: 98px;
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    -webkit-perspective-origin: 50% 50%;
+            perspective-origin: 50% 50%;
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+    background-color: transparent;
+    right: 49px;
+    top: -147px;
+  }
+  .funPortfolio .dodecahedron {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-animation: spinDodecahedron 40s ease-in-out infinite;
+            animation: spinDodecahedron 40s ease-in-out infinite;
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+  }
+  @-webkit-keyframes spinDodecahedron {
+    0% {
+      -webkit-transform: rotateX(360deg) rotateY(0);
+              transform: rotateX(360deg) rotateY(0);
+    }
+    25% {
+      -webkit-transform: rotateX(180deg) rotateY(180deg);
+              transform: rotateX(180deg) rotateY(180deg);
+    }
+    50% {
+      -webkit-transform: rotateX(90deg) rotateY(90deg);
+              transform: rotateX(90deg) rotateY(90deg);
+    }
+    75% {
+      -webkit-transform: rotateX(270deg) rotateY(270deg);
+              transform: rotateX(270deg) rotateY(270deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg) rotateY(360deg);
+              transform: rotateX(0deg) rotateY(360deg);
+    }
+  }
+  @keyframes spinDodecahedron {
+    0% {
+      -webkit-transform: rotateX(360deg) rotateY(0);
+              transform: rotateX(360deg) rotateY(0);
+    }
+    25% {
+      -webkit-transform: rotateX(180deg) rotateY(180deg);
+              transform: rotateX(180deg) rotateY(180deg);
+    }
+    50% {
+      -webkit-transform: rotateX(90deg) rotateY(90deg);
+              transform: rotateX(90deg) rotateY(90deg);
+    }
+    75% {
+      -webkit-transform: rotateX(270deg) rotateY(270deg);
+              transform: rotateX(270deg) rotateY(270deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg) rotateY(360deg);
+              transform: rotateX(0deg) rotateY(360deg);
+    }
+  }
+  .funPortfolio .dodecahedron > * {
+    position: absolute;
+    display: block;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 49px;
+    height: 49px;
+    left: 25%;
+    top: 25%;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(1) {
+    -webkit-transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(32.07092px) rotateZ(90deg);
+            transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(32.07092px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(2) {
+    -webkit-transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(32.07092px) rotateZ(-90deg);
+            transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(32.07092px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(3) {
+    -webkit-transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(32.07092px) rotateZ(180deg);
+            transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(32.07092px) rotateZ(180deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(4) {
+    -webkit-transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(32.07092px) rotateZ(-90deg);
+            transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(32.07092px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(5) {
+    -webkit-transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(32.07092px) rotateZ(90deg);
+            transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(32.07092px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(6) {
+    -webkit-transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(32.07092px) rotateZ(0deg);
+            transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(32.07092px) rotateZ(0deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(7) {
+    -webkit-transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(-32.07092px) rotateZ(-90deg);
+            transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(-32.07092px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(8) {
+    -webkit-transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(-32.07092px) rotateZ(90deg);
+            transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(-32.07092px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(9) {
+    -webkit-transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(-32.07092px) rotateZ(0deg);
+            transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(-32.07092px) rotateZ(0deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(10) {
+    -webkit-transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(-32.07092px) rotateZ(90deg);
+            transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(-32.07092px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(11) {
+    -webkit-transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(-32.07092px) rotateZ(-90deg);
+            transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(-32.07092px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(12) {
+    -webkit-transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(-32.07092px) rotateZ(180deg);
+            transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(-32.07092px) rotateZ(180deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  #header:target ~ .funPortfolio {
+    top: 122.5px;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  .funPortfolio {
+    width: 128px;
+    height: 128px;
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    -webkit-perspective-origin: 50% 50%;
+            perspective-origin: 50% 50%;
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+    background-color: transparent;
+    right: 64px;
+    top: -192px;
+  }
+  .funPortfolio .dodecahedron {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-animation: spinDodecahedron 40s ease-in-out infinite;
+            animation: spinDodecahedron 40s ease-in-out infinite;
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+  }
+  @-webkit-keyframes spinDodecahedron {
+    0% {
+      -webkit-transform: rotateX(360deg) rotateY(0);
+              transform: rotateX(360deg) rotateY(0);
+    }
+    25% {
+      -webkit-transform: rotateX(180deg) rotateY(180deg);
+              transform: rotateX(180deg) rotateY(180deg);
+    }
+    50% {
+      -webkit-transform: rotateX(90deg) rotateY(90deg);
+              transform: rotateX(90deg) rotateY(90deg);
+    }
+    75% {
+      -webkit-transform: rotateX(270deg) rotateY(270deg);
+              transform: rotateX(270deg) rotateY(270deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg) rotateY(360deg);
+              transform: rotateX(0deg) rotateY(360deg);
+    }
+  }
+  @keyframes spinDodecahedron {
+    0% {
+      -webkit-transform: rotateX(360deg) rotateY(0);
+              transform: rotateX(360deg) rotateY(0);
+    }
+    25% {
+      -webkit-transform: rotateX(180deg) rotateY(180deg);
+              transform: rotateX(180deg) rotateY(180deg);
+    }
+    50% {
+      -webkit-transform: rotateX(90deg) rotateY(90deg);
+              transform: rotateX(90deg) rotateY(90deg);
+    }
+    75% {
+      -webkit-transform: rotateX(270deg) rotateY(270deg);
+              transform: rotateX(270deg) rotateY(270deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg) rotateY(360deg);
+              transform: rotateX(0deg) rotateY(360deg);
+    }
+  }
+  .funPortfolio .dodecahedron > * {
+    position: absolute;
+    display: block;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 64px;
+    height: 64px;
+    left: 25%;
+    top: 25%;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(1) {
+    -webkit-transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(41.88854px) rotateZ(90deg);
+            transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(41.88854px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(2) {
+    -webkit-transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(41.88854px) rotateZ(-90deg);
+            transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(41.88854px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(3) {
+    -webkit-transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(41.88854px) rotateZ(180deg);
+            transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(41.88854px) rotateZ(180deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(4) {
+    -webkit-transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(41.88854px) rotateZ(-90deg);
+            transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(41.88854px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(5) {
+    -webkit-transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(41.88854px) rotateZ(90deg);
+            transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(41.88854px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(6) {
+    -webkit-transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(41.88854px) rotateZ(0deg);
+            transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(41.88854px) rotateZ(0deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(7) {
+    -webkit-transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(-41.88854px) rotateZ(-90deg);
+            transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(-41.88854px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(8) {
+    -webkit-transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(-41.88854px) rotateZ(90deg);
+            transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(-41.88854px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(9) {
+    -webkit-transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(-41.88854px) rotateZ(0deg);
+            transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(-41.88854px) rotateZ(0deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(10) {
+    -webkit-transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(-41.88854px) rotateZ(90deg);
+            transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(-41.88854px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(11) {
+    -webkit-transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(-41.88854px) rotateZ(-90deg);
+            transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(-41.88854px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(12) {
+    -webkit-transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(-41.88854px) rotateZ(180deg);
+            transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(-41.88854px) rotateZ(180deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  #header:target ~ .funPortfolio {
+    top: 160px;
+  }
+}
+
+@media only screen and (min-width: 1601px) {
+  .funPortfolio {
+    width: 134px;
+    height: 134px;
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    -webkit-perspective-origin: 50% 50%;
+            perspective-origin: 50% 50%;
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+    background-color: transparent;
+    right: 67px;
+    top: -201px;
+  }
+  .funPortfolio .dodecahedron {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-animation: spinDodecahedron 40s ease-in-out infinite;
+            animation: spinDodecahedron 40s ease-in-out infinite;
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+  }
+  @-webkit-keyframes spinDodecahedron {
+    0% {
+      -webkit-transform: rotateX(360deg) rotateY(0);
+              transform: rotateX(360deg) rotateY(0);
+    }
+    25% {
+      -webkit-transform: rotateX(180deg) rotateY(180deg);
+              transform: rotateX(180deg) rotateY(180deg);
+    }
+    50% {
+      -webkit-transform: rotateX(90deg) rotateY(90deg);
+              transform: rotateX(90deg) rotateY(90deg);
+    }
+    75% {
+      -webkit-transform: rotateX(270deg) rotateY(270deg);
+              transform: rotateX(270deg) rotateY(270deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg) rotateY(360deg);
+              transform: rotateX(0deg) rotateY(360deg);
+    }
+  }
+  @keyframes spinDodecahedron {
+    0% {
+      -webkit-transform: rotateX(360deg) rotateY(0);
+              transform: rotateX(360deg) rotateY(0);
+    }
+    25% {
+      -webkit-transform: rotateX(180deg) rotateY(180deg);
+              transform: rotateX(180deg) rotateY(180deg);
+    }
+    50% {
+      -webkit-transform: rotateX(90deg) rotateY(90deg);
+              transform: rotateX(90deg) rotateY(90deg);
+    }
+    75% {
+      -webkit-transform: rotateX(270deg) rotateY(270deg);
+              transform: rotateX(270deg) rotateY(270deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg) rotateY(360deg);
+              transform: rotateX(0deg) rotateY(360deg);
+    }
+  }
+  .funPortfolio .dodecahedron > * {
+    position: absolute;
+    display: block;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 67px;
+    height: 67px;
+    left: 25%;
+    top: 25%;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(1) {
+    -webkit-transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(43.85207px) rotateZ(90deg);
+            transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(43.85207px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(2) {
+    -webkit-transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(43.85207px) rotateZ(-90deg);
+            transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(43.85207px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(3) {
+    -webkit-transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(43.85207px) rotateZ(180deg);
+            transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(43.85207px) rotateZ(180deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(4) {
+    -webkit-transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(43.85207px) rotateZ(-90deg);
+            transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(43.85207px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(5) {
+    -webkit-transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(43.85207px) rotateZ(90deg);
+            transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(43.85207px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(6) {
+    -webkit-transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(43.85207px) rotateZ(0deg);
+            transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(43.85207px) rotateZ(0deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(7) {
+    -webkit-transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(-43.85207px) rotateZ(-90deg);
+            transform: rotateZ(0deg) rotateY(31.72278deg) translateZ(-43.85207px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(8) {
+    -webkit-transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(-43.85207px) rotateZ(90deg);
+            transform: rotateZ(90deg) rotateY(58.27722deg) translateZ(-43.85207px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(9) {
+    -webkit-transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(-43.85207px) rotateZ(0deg);
+            transform: rotateZ(31.72278deg) rotateY(90deg) translateZ(-43.85207px) rotateZ(0deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(10) {
+    -webkit-transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(-43.85207px) rotateZ(90deg);
+            transform: rotateZ(0deg) rotateY(-31.72278deg) translateZ(-43.85207px) rotateZ(90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(11) {
+    -webkit-transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(-43.85207px) rotateZ(-90deg);
+            transform: rotateZ(90deg) rotateY(-58.27722deg) translateZ(-43.85207px) rotateZ(-90deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  .funPortfolio .dodecahedron > *:nth-of-type(12) {
+    -webkit-transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(-43.85207px) rotateZ(180deg);
+            transform: rotateZ(-31.72278deg) rotateY(90deg) translateZ(-43.85207px) rotateZ(180deg);
+    -webkit-clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+            clip-path: polygon(50% 0%, 97.55283% 34.54915%, 79.38926% 90.45085%, 20.61074% 90.45085%, 2.44717% 34.54915%);
+    background-color: transparent;
+  }
+  #header:target ~ .funPortfolio {
+    top: 167.5px;
+  }
 }

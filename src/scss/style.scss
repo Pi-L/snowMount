@@ -1,6 +1,7 @@
 /* Dependencies */
 
 // todo : change Dependencies imports to each files that needs them
+// -- to try and fix mapping
 
 @import 'dependencies/sm-variables';
 @import 'dependencies/sm-colors';
@@ -19,3 +20,7 @@
 // Accessibility Modules
 
 @import 'modules-a11y/sm-a11y';
+
+// fun
+
+@import 'fun/dodeca';

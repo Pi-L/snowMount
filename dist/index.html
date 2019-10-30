@@ -32,7 +32,9 @@
     <!-- - - - - - - - - - - - NAVIGATION - - - - - - - -  -->
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <nav class="sm-c-nav">
-      <img class="sm-c-nav__logo" src="./svg/Logo.svg" alt="SnowMount LLC Logo." />
+      <a href="#" aria-label="snowmount.com"
+        ><img class="sm-c-nav__logo" src="./svg/Logo.svg" alt="SnowMount LLC Logo."
+      /></a>
       <button class="sm-c-nav__burger" aria-label="Menu button">
         <span></span>
         <span></span>
@@ -80,8 +82,6 @@
         <h2>Our Work</h2>
         <div class="sm-c-portfolio__container">
           <figure class="sm-c-portfolio__container__figure">
-            <!--  performance : Though less conveniant  <picture> could help with image size/multiformat with <source> tag  -->
-            <!-- may also solve the dpr>2 issue -->
             <img
               srcset="
                 images/cold-daylight-fjord_240px.png      240w,
@@ -121,32 +121,52 @@
               >
             </figcaption>
           </figure>
-          <!-- todo : switch this one to <PICTURE>/<SOURCE> -->
           <figure class="sm-c-portfolio__container__figure">
-            <img
-              srcset="
-                images/adorable-animal-breed_272px.png      272w,
-                images/adorable-animal-breed_290px.png      290w,
-                images/adorable-animal-breed_504px.png      504w,
-                images/adorable-animal-breed_544px@2x.png   544w,
-                images/adorable-animal-breed_580px@2x.png   580w,
-                images/adorable-animal-breed_653px.png      653w,
-                images/adorable-animal-breed_792px.png      792w,
-                images/adorable-animal-breed_1008px@2x.png 1008w,
-                images/adorable-animal-breed_1060px.png    1060w,
-                images/adorable-animal-breed_1306px@2x.png 1306w,
-                images/adorable-animal-breed_1584px@2x.png 1584w,
-                images/adorable-animal-breed_2120px@2x.png 2120w
-              "
-              sizes="(max-width: 576px) 290px,
-                (max-width: 768px) 272px,
-                (max-width: 992px) 504px,
-                (max-width: 1200px) 653px,
-                (max-width: 1600px) 792px,
-                (min-width: 1601px) 1060px"
-              src="images/adorable-animal-breed_272px.png"
-              alt="Lorem ipsum dolor sit amet."
-            />
+            <picture>
+              <source
+                media="(max-width: 576px)"
+                srcset="
+                  images/adorable-animal-breed_290px.png,
+                  images/adorable-animal-breed_580px@2x.png 2x
+                "
+              />
+              <source
+                media="(max-width: 768px)"
+                srcset="
+                  images/adorable-animal-breed_272px.png,
+                  images/adorable-animal-breed_544px@2x.png 2x
+                "
+              />
+              <source
+                media="(max-width: 992px)"
+                srcset="
+                  images/adorable-animal-breed_504px.png,
+                  images/adorable-animal-breed_1008px@2x.png 2x
+                "
+              />
+              <source
+                media="(max-width: 1200px)"
+                srcset="
+                  images/adorable-animal-breed_653px.png,
+                  images/adorable-animal-breed_1306px@2x.png 2x
+                "
+              />
+              <source
+                media="(max-width: 1600px)"
+                srcset="
+                  images/adorable-animal-breed_792px.png,
+                  images/adorable-animal-breed_1584px@2x.png 2x
+                "
+              />
+              <source
+                media="(min-width: 1601px)"
+                srcset="
+                  images/adorable-animal-breed_1060px.png,
+                  images/adorable-animal-breed_2120px@2x.png 2x
+                "
+              />
+              <img src="images/adorable-animal-breed_580px@2x.png" alt="lorem" />
+            </picture>
             <figcaption class="sm-c-portfolio__container__figure__card">
               <h3>Nature Instinct</h3>
               <p>
@@ -464,5 +484,26 @@
         /></a>
       </div>
     </footer>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- - - -  - - - - - For Fun - - - - -  - - - - - - - -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <div class="sayHelloModal" hidden></div>
+
+    <div class="funPortfolio" id="funPortfolio">
+      <div class="dodecahedron">
+        <img src="images/action-active-cold_290px.png" alt="dodecahedron" />
+        <img src="images/adorable-animal-breed_290px.png" alt="dodecahedron" />
+        <img src="images/adventure-adventurer-altitude_290px.png" alt="dodecahedron" />
+        <img src="images/beatiful-landscape-cold-colors_290px.png" alt="dodecahedron" />
+        <img src="images/cold-daylight-fjord_290px.png" alt="dodecahedron" />
+        <img src="images/PhotoMontagnes-mw320_450px.png" alt="dodecahedron" />
+        <img src="images/action-active-cold_290px.png" alt="dodecahedron" />
+        <img src="images/adorable-animal-breed_290px.png" alt="dodecahedron" />
+        <img src="images/adventure-adventurer-altitude_290px.png" alt="dodecahedron" />
+        <img src="images/beatiful-landscape-cold-colors_290px.png" alt="dodecahedron" />
+        <img src="images/cold-daylight-fjord_290px.png" alt="dodecahedron" />
+        <img src="images/PhotoMontagnes-mw320_450px.png" alt="dodecahedron" />
+      </div>
+    </div>
   </body>
 </html>

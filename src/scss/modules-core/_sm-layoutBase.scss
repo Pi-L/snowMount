@@ -22,6 +22,7 @@ body {
 .sm-c-about > p,
 .sm-c-portfolio__container {
   width: nth($sm-innerSection-width, 1);
+
   margin: 0 auto;
 
   @for $i from 2 through 6 {
@@ -57,7 +58,7 @@ body {
 .sm-c-nav {
   position: fixed;
   top: nth($sm-nav-top, 1);
-  left: 50%;
+  left: 50vw;
   transform: translateX(-50%);
   height: nth($sm-nav-height, 1);
   z-index: 10000;
@@ -151,10 +152,7 @@ body {
 .sm-c-portfolio {
   box-sizing: content-box;
   padding-bottom: 0;
-  height: nth($sm-portfolio--content-height, 1);
-  /*  &__container {
-    height: nth($sm-portfolio__container-height, 1);
-  } */
+  // height: nth($sm-portfolio--content-height, 1);
 
   > * {
     box-sizing: border-box;
@@ -172,6 +170,7 @@ body {
   }
 
   &__container {
+    min-width: 90%;
     &__figure {
       position: relative;
 
@@ -184,13 +183,13 @@ body {
         margin-bottom: 0;
       }
 
-      > img {
+      img {
         width: 100%;
         height: auto;
       }
       &__card {
         position: absolute;
-        opacity: 0;
+
         top: 0;
         left: 0;
         right: 0;
@@ -261,14 +260,14 @@ body {
   &__radio {
     position: absolute;
     bottom: 0;
-    left: 50%;
+    left: 50vw;
 
     &--label {
       position: absolute;
       display: block;
 
       bottom: nth($sm-testimonial__radio_label-bottom, 1);
-      left: 50%;
+      left: 50vw;
 
       transform: translateX(-200%);
       &:nth-of-type(2) {

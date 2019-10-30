@@ -1,10 +1,7 @@
-
+dist/css/debug/
 node_modules/
-
-
-
+docs/
+\.git/
 package-lock\.json
-
 _package\.json
-
 yarn\.lock

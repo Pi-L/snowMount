@@ -27,7 +27,12 @@
     <script src="./scripts/script.min.js" defer></script>
   </head>
   <body>
-    <a class="sm-u-skipToContent sm-u-screenReaderText" href="#content">Skip to content</a>
+    <a
+      class="sm-u-skipToContent sm-u-screenReaderText"
+      href="#content"
+      aria-label="Skip to main content"
+      >Skip to content</a
+    >
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!-- - - - - - - - - - - - NAVIGATION - - - - - - - -  -->
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -52,7 +57,7 @@
         >
       </div>
     </nav>
-    <!-- - - - - - - - - - - - - - - - - -derful- - - - - - - -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!-- - - - - - - - - - -  - HEADER - - - - - - - - - - -->
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <header class="sm-c-header" id="header">
@@ -408,7 +413,7 @@
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aspernatur sunt quaerat
               quibusdam similique velit autem esse reiciendis eligendi fuga. Quam similique pariatur
-              sunt, saepe cumque esse accusantium quasi cum.
+              sunt, saepe cumque esse quasi cum.
             </p>
           </div>
 
@@ -486,9 +491,10 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!-- - - -  - - - - - For Fun - - - - -  - - - - - - - -->
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <div class="sayHelloModal" id="sayHelloModal">
+    <div class="sayHelloModal--origin" aria-hidden="true" id="sayHelloModal" tabindex="-1"></div>
+    <div class="sayHelloModal">
       <!--  forked from https://codepen.io/merb/pen/qZavOG -->
-      <h2 id="title">Message US</h2>
+      <h2 id="title">Message us</h2>
       <form id="form" action="#" accept-charset="UTF-8" method="POST">
         <label for="fname">first name:</label>
         <input id="fname" type="text" placeholder="first name" required />

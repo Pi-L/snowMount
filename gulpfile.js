@@ -24,6 +24,7 @@ const settings = {
   webFonts: false,
   images: false,
   testing: false,
+  ghPages: true,
   reload: true
 };
 
@@ -83,6 +84,7 @@ console.timeEnd('Loading plugins');
 const paths = {
   input: 'src/',
   output: 'dist/',
+  ghPages: 'docs/',
   scripts: {
     input: 'src/scripts/**/*',
     output: 'dist/scripts/'
@@ -125,6 +127,12 @@ const cleanDist = async function cleanDist(done) {
   del.sync([
     paths.output
   ]);
+
+  if (settings.ghPages) {
+    del.sync([
+      paths.ghPages
+    ]);
+  }
 
   // Signal completion
   return done();
@@ -231,6 +239,18 @@ const copyFiles = function copyFiles(done) {
 */
 };
 
+// GitHub Pages folder
+
+const GITHUBPAGES = function gitHubPages(done) {
+
+  if (!settings.ghPages) return done();
+
+  // Copy dist to docs
+  return src(`${paths.output}**/*`)
+    .pipe(dest(paths.ghPages));
+
+};
+
 // ------------------------- web Fonts ---------------------------------------
 
 const copyWebFonts = function copyWebFonts(done) {
@@ -264,6 +284,8 @@ const testing = function testing(done) {
     .pipe(dest(`${paths.copy.output}/scripts/`));
 
 };
+
+
 
 // ----------------------- Server, watch, task running ------------------------
 
@@ -310,13 +332,15 @@ exports.default = series(
   copyWebFonts,
   copyWebFontsScss,
   copyFiles,
+
   parallel(
     buildScripts,
     buildImages,
     buildSVGs,
     buildStyles,
     testing
-  )
+  ),
+  GITHUBPAGES
 );
 
 // Watch and reload

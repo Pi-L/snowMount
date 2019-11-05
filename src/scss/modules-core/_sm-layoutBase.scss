@@ -9,6 +9,7 @@ html {
   min-height: 100vh;
   width: 100%;
   max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
@@ -250,6 +251,7 @@ body {
   position: relative;
   box-sizing: content-box;
   height: nth($sm-testimonial--content-height, 1);
+  overflow-x: hidden;
 
   @for $i from 2 through 6 {
     @include mediaQueries-2to6($i) {

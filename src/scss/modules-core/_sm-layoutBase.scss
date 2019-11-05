@@ -245,6 +245,7 @@ body {
 // SECTION "TESTIMONIAL"
 
 .sm-c-testimonial {
+  z-index: 0;
   position: relative;
   box-sizing: content-box;
   height: nth($sm-testimonial--content-height, 1);

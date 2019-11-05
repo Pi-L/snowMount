@@ -112,18 +112,16 @@ h2 {
       }
     }
   }
-  &__link {
-    &--ourWork {
-      color: $sm-header-font-color;
-      @include ft--lato-black();
-      font-size: nth($sm-header__link--ourWork-fz, 1);
-      line-height: nth($sm-header__link--ourWork-lineHeight, 1);
+  &__link--ourWork {
+    color: $sm-header-font-color;
+    @include ft--lato-black();
+    font-size: nth($sm-header__link--ourWork-fz, 1);
+    line-height: nth($sm-header__link--ourWork-lineHeight, 1);
 
-      @for $i from 2 through 6 {
-        @include mediaQueries-2to6($i) {
-          font-size: nth($sm-header__link--ourWork-fz, $i);
-          line-height: nth($sm-header__link--ourWork-lineHeight, $i);
-        }
+    @for $i from 2 through 6 {
+      @include mediaQueries-2to6($i) {
+        font-size: nth($sm-header__link--ourWork-fz, $i);
+        line-height: nth($sm-header__link--ourWork-lineHeight, $i);
       }
     }
   }
@@ -157,51 +155,47 @@ h2 {
     color: $sm-portfolio-font-color;
   }
 
-  &__container {
-    &__figure {
-      &__card {
-        color: $sm-portfolio__container__figure__card-font-color;
+  &__container__figure__card {
+    color: $sm-portfolio__container__figure__card-font-color;
 
-        h3 {
-          @include ft--lato-black();
+    h3 {
+      @include ft--lato-black();
 
-          font-size: nth($sm-portfolio__container__figure__card__h3-fz, 1);
-          line-height: nth($sm-portfolio__container__figure__card__h3-lineHeight, 1);
+      font-size: nth($sm-portfolio__container__figure__card__h3-fz, 1);
+      line-height: nth($sm-portfolio__container__figure__card__h3-lineHeight, 1);
 
-          @for $i from 2 through 6 {
-            @include mediaQueries-2to6($i) {
-              font-size: nth($sm-portfolio__container__figure__card__h3-fz, $i);
-              line-height: nth($sm-portfolio__container__figure__card__h3-lineHeight, $i);
-            }
-          }
+      @for $i from 2 through 6 {
+        @include mediaQueries-2to6($i) {
+          font-size: nth($sm-portfolio__container__figure__card__h3-fz, $i);
+          line-height: nth($sm-portfolio__container__figure__card__h3-lineHeight, $i);
         }
+      }
+    }
 
-        p {
-          @include ft--lato-regular();
-          font-size: nth($sm-portfolio__container__figure__card__p-fz, 1);
-          line-height: nth($sm-portfolio__container__figure__card__p-lineHeight, 1);
+    p {
+      @include ft--lato-regular();
+      font-size: nth($sm-portfolio__container__figure__card__p-fz, 1);
+      line-height: nth($sm-portfolio__container__figure__card__p-lineHeight, 1);
 
-          @for $i from 2 through 6 {
-            @include mediaQueries-2to6($i) {
-              font-size: nth($sm-portfolio__container__figure__card__p-fz, $i);
-              line-height: nth($sm-portfolio__container__figure__card__p-lineHeight, $i);
-            }
-          }
+      @for $i from 2 through 6 {
+        @include mediaQueries-2to6($i) {
+          font-size: nth($sm-portfolio__container__figure__card__p-fz, $i);
+          line-height: nth($sm-portfolio__container__figure__card__p-lineHeight, $i);
         }
+      }
+    }
 
-        &__link--more {
-          color: $sm-portfolio__container__figure__card-font-color;
+    &__link--more {
+      color: $sm-portfolio__container__figure__card-font-color;
 
-          @include ft--lato-black();
-          font-size: nth($sm-portfolio__container__figure__card__link--more-fz, 1);
-          line-height: nth($sm-portfolio__container__figure__card__link--more-lineHeight, 1);
+      @include ft--lato-black();
+      font-size: nth($sm-portfolio__container__figure__card__link--more-fz, 1);
+      line-height: nth($sm-portfolio__container__figure__card__link--more-lineHeight, 1);
 
-          @for $i from 2 through 6 {
-            @include mediaQueries-2to6($i) {
-              font-size: nth($sm-portfolio__container__figure__card__link--more-fz, $i);
-              line-height: nth($sm-portfolio__container__figure__card__link--more-lineHeight, $i);
-            }
-          }
+      @for $i from 2 through 6 {
+        @include mediaQueries-2to6($i) {
+          font-size: nth($sm-portfolio__container__figure__card__link--more-fz, $i);
+          line-height: nth($sm-portfolio__container__figure__card__link--more-lineHeight, $i);
         }
       }
     }

@@ -1071,12 +1071,11 @@ body {
 }
 
 .sm-c-nav {
-  position: fixed;
-  top: 45px;
-  left: 50vw;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   height: 27px;
+  margin: 45px auto -72px;
   z-index: 10000;
   display: -webkit-box;
   display: flex;
@@ -1092,30 +1091,35 @@ body {
 @media only screen and (min-width: 577px) {
   .sm-c-nav {
     height: 40px;
+    margin: 45px auto -85px;
   }
 }
 
 @media only screen and (min-width: 769px) {
   .sm-c-nav {
     height: 41px;
+    margin: 45px auto -86px;
   }
 }
 
 @media only screen and (min-width: 993px) {
   .sm-c-nav {
     height: 49px;
+    margin: 45px auto -94px;
   }
 }
 
 @media only screen and (min-width: 1201px) {
   .sm-c-nav {
     height: 64px;
+    margin: 45px auto -109px;
   }
 }
 
 @media only screen and (min-width: 1601px) {
   .sm-c-nav {
     height: 67px;
+    margin: 45px auto -112px;
   }
 }
 
@@ -1787,11 +1791,6 @@ body {
   width: 290px;
 }
 
-.sm-c-footer__infos__location > h3,
-.sm-c-footer__infos__contact > h3 {
-  padding-bottom: 20px;
-}
-
 .sm-c-footer__infos__location {
   display: block;
   width: 140px;
@@ -1800,6 +1799,11 @@ body {
 .sm-c-footer__infos__contact {
   display: block;
   width: 140px;
+}
+
+.sm-c-footer__infos__location > h3,
+.sm-c-footer__infos__contact > h3 {
+  padding-bottom: 20px;
 }
 
 .sm-c-footer__social {
@@ -2488,22 +2492,6 @@ body {
   transition: max-height 0.3s, opacity 0.3s;
 }
 
-.sm-c-nav__burger.openBurger + .sm-c-nav__menu {
-  max-height: 100%;
-  opacity: 1;
-}
-
-.sm-c-nav__burger.openBurger + .sm-c-nav__menu::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 20px;
-  border-top: solid 2px #fff;
-  background-color: rgba(54, 147, 214, 0.8);
-}
-
 .sm-c-nav__menu a {
   display: -webkit-box;
   display: flex;
@@ -2555,6 +2543,22 @@ body {
   content: '';
   width: 70%;
   background-color: #3693d6;
+}
+
+.sm-c-nav__burger.openBurger + .sm-c-nav__menu {
+  max-height: 100%;
+  opacity: 1;
+}
+
+.sm-c-nav__burger.openBurger + .sm-c-nav__menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 20px;
+  border-top: solid 2px #fff;
+  background-color: rgba(54, 147, 214, 0.8);
 }
 
 @media only screen and (min-width: 577px) {

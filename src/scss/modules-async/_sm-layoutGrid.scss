@@ -77,15 +77,13 @@
                 }
               }
             }
-            &:nth-of-type(3) {
-              .sm-c-portfolio__container__figure__card {
-                > h3 {
-                  padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, $i);
-                }
-                > p {
-                  max-width: nth($sm-portfolio__container__figure__card--content-maxW, $i);
-                  padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, $i);
-                }
+            &:nth-of-type(3) .sm-c-portfolio__container__figure__card {
+              > h3 {
+                padding-bottom: nth($sm-portfolio__container__figure__card__h3-fz, $i);
+              }
+              > p {
+                max-width: nth($sm-portfolio__container__figure__card--content-maxW, $i);
+                padding-bottom: nth($sm-portfolio__container__figure__card_p-padding-bottom, $i);
               }
             }
           }

@@ -56,11 +56,13 @@ body {
 // NAVIGATION
 
 .sm-c-nav {
-  position: fixed;
-  top: nth($sm-nav-top, 1);
-  left: 50vw;
-  transform: translateX(-50%);
+  position: sticky;
+  //  top: nth($sm-nav-top, 1);
+  // left: 50vw;
+  top: 0;
+  // transform: translateX(-50%);
   height: nth($sm-nav-height, 1);
+  margin: nth($sm-nav-top, 1) auto -1 * (nth($sm-nav-top, 1) + nth($sm-nav-height, 1));
   z-index: 10000;
 
   display: flex;
@@ -71,6 +73,7 @@ body {
   @for $i from 2 through 6 {
     @include mediaQueries-2to6($i) {
       height: nth($sm-nav-height, $i);
+      margin: nth($sm-nav-top, $i) auto -1 * (nth($sm-nav-top, $i) + nth($sm-nav-height, $i));
     }
   }
 }
@@ -397,11 +400,6 @@ body {
     align-items: flex-start;
     width: nth($sm-footer__infos-width, 1);
 
-    &__location > h3,
-    &__contact > h3 {
-      padding-bottom: nth($sm-footer__infos__h3-padding-bottom, 1);
-    }
-
     &__location {
       display: block;
       width: nth($sm-footer__infos__location-width, 1);
@@ -410,7 +408,13 @@ body {
       display: block;
       width: nth($sm-footer__infos__contact-width, 1);
     }
+
+    &__location > h3,
+    &__contact > h3 {
+      padding-bottom: nth($sm-footer__infos__h3-padding-bottom, 1);
+    }
   }
+
   &__social {
     display: flex;
     flex-flow: row nowrap;

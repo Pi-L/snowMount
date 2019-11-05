@@ -55,60 +55,58 @@ body {
 
 .sm-c-portfolio {
   background-color: $sm-portfolio-bg-color;
-  &__container {
-    &__figure {
-      &__card {
-        //  background-color: $sm-portfolio__container__figure__card-bg-color;
-        background: url(../svg/FiltreBleu.svg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        opacity: 0;
-        transition: opacity 0.3s;
+  &__container__figure {
+    &__card {
+      //  background-color: $sm-portfolio__container__figure__card-bg-color;
+      background: url(../svg/FiltreBleu.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0;
+      transition: opacity 0.3s;
 
-        &__link--more {
-          display: block;
+      &__link--more {
+        display: block;
 
-          @extend %sm-u-linkButton;
-          border: 2px solid $sm-portfolio__container__figure__card-font-color;
-          width: nth($sm-portfolio__container__figure__card__link--more-width, 1);
-          height: nth($sm-portfolio__container__figure__card__link--more-height, 1);
-          padding: nth($sm-portfolio__container__figure__card__link--more-padding, 1);
+        @extend %sm-u-linkButton;
+        border: 2px solid $sm-portfolio__container__figure__card-font-color;
+        width: nth($sm-portfolio__container__figure__card__link--more-width, 1);
+        height: nth($sm-portfolio__container__figure__card__link--more-height, 1);
+        padding: nth($sm-portfolio__container__figure__card__link--more-padding, 1);
 
-          @for $i from 2 through 6 {
-            @include mediaQueries-2to6($i) {
-              width: nth($sm-portfolio__container__figure__card__link--more-width, $i);
-              height: nth($sm-portfolio__container__figure__card__link--more-height, $i);
-              padding: nth($sm-portfolio__container__figure__card__link--more-padding, $i);
-            }
+        @for $i from 2 through 6 {
+          @include mediaQueries-2to6($i) {
+            width: nth($sm-portfolio__container__figure__card__link--more-width, $i);
+            height: nth($sm-portfolio__container__figure__card__link--more-height, $i);
+            padding: nth($sm-portfolio__container__figure__card__link--more-padding, $i);
           }
+        }
 
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 15%;
+          left: 50%;
+          transform: translateX(-50%);
+          height: 2px;
+          width: 70%;
+          background-color: transparent;
+          transition: width 0.3s;
+        }
+        &:hover,
+        &:focus,
+        &:active {
           &::after {
-            content: '';
-            position: absolute;
-            bottom: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 2px;
-            width: 70%;
-            background-color: transparent;
-            transition: width 0.3s;
-          }
-          &:hover,
-          &:focus,
-          &:active {
-            &::after {
-              width: 40%;
-              background-color: $sm-portfolio__container__figure__card-font-color;
-            }
+            width: 40%;
+            background-color: $sm-portfolio__container__figure__card-font-color;
           }
         }
       }
+    }
 
-      &:hover &__card,
-      &:focus &__card,
-      &__card.focusedLink {
-        opacity: 1;
-      }
+    &:hover &__card,
+    &:focus &__card,
+    &__card.focusedLink {
+      opacity: 1;
     }
   }
 }
@@ -145,12 +143,10 @@ body {
     }
   }
 
-  &__slider {
-    &__card {
-      background-color: $sm-testimonial-bg-color;
-      > * {
-        text-align: center;
-      }
+  &__slider__card {
+    background-color: $sm-testimonial-bg-color;
+    > * {
+      text-align: center;
     }
   }
 }
@@ -170,13 +166,11 @@ body {
     z-index: -1;
   }
 
-  &__infos {
-    &__contact {
-      a {
-        outline: none;
-        color: $sm-footer-font-color;
-        @include hover-underline-animation($sm-footer-font-color);
-      }
+  &__infos__contact {
+    a {
+      outline: none;
+      color: $sm-footer-font-color;
+      @include hover-underline-animation($sm-footer-font-color);
     }
   }
 

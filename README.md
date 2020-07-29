@@ -1,1 +1,1 @@
-[CEFIM](https://www.cefim.eu/)'s SnowMount Exercise
+An HTML/CSS integration exercise I worked on before starting my Web Developer formation.
